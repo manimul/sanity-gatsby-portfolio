@@ -8,11 +8,12 @@
 }
 
 .mainImage {
-  position: relative;
+ text-align: center;
+  /* position: relative;
   background: #eee;
   padding-bottom: calc(9 / 16 * 100%);
 
-  @nest & img {
+ @nest & img {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +21,7 @@
     height: 100%;
     vertical-align: top;
     object-fit: cover;
-  }
+  }*/
 }
 
 .grid {

@@ -1,26 +1,18 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from '../lib/helpers'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
+
+import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
-  query IndexPageQuery {
-    site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
-      title
-      subtitle
-      description
-      keywords
-    }
+  query CategoryPageQuery {
     projects: allSanitySampleProject(
-      limit: 6
+      limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
@@ -60,9 +52,8 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+const CategoryPage = props => {
   const {data, errors} = props
-
   if (errors) {
     return (
       <Layout>
@@ -70,36 +61,17 @@ const IndexPage = props => {
       </Layout>
     )
   }
-
-  const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
-    : []
-
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
-  }
-
+  const projectNodes =
+    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title='Ghanas Most Influential' />
       <Container>
-        <h1> {site.title}</h1>
-        <h2>Ghanas Most Influential</h2>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title=''
-            nodes={projectNodes}
-            browseMoreHref='/category/'
-          />
-        )}
+        <h1 className={responsiveTitle1}>Ghana's Most Influential</h1>
+        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default IndexPage
+export default CategoryPage
