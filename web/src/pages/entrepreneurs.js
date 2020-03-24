@@ -10,11 +10,12 @@ import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
-  query ArchivePageQuery {
+  query EntrepreneursPage {
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}  
+      filter: {categories: {elemMatch: {title: {eq: "Ghana's Entrepreneurs"}}}}
+      
     ) {
       edges {
         node {
@@ -52,7 +53,7 @@ export const query = graphql`
   }
 `
 
-const ArchivePage = props => {
+const EntrepreneursPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -67,11 +68,11 @@ const ArchivePage = props => {
     <Layout>
       <SEO title='Ghanas Most Influential' />
       <Container>
-        <h1 className={responsiveTitle1}>Ghana's Most Influential</h1>
+        <h1 className={responsiveTitle1}>Ghana's Entrepreneurs</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default ArchivePage
+export default EntrepreneursPage

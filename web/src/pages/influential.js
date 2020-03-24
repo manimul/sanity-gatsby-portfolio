@@ -10,11 +10,11 @@ import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
-  query CategoryPageQuery {
+  query InfluentialPageQuery {
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+      filter: {categories: {elemMatch: {title: {eq: "Ghana's Most Influential"}}}}
     ) {
       edges {
         node {
@@ -52,7 +52,7 @@ export const query = graphql`
   }
 `
 
-const CategoryPage = props => {
+const InfluentialPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -74,4 +74,4 @@ const CategoryPage = props => {
   )
 }
 
-export default CategoryPage
+export default InfluentialPage
