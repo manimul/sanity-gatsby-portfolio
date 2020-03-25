@@ -14,7 +14,7 @@ export const query = graphql`
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {title: {eq: "Ghana's Most Influential"}}}}
+      filter: {categories: {elemMatch: {title: {eq: "Most Influential"}}}}
     ) {
       edges {
         node {

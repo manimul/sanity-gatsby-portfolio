@@ -8,13 +8,15 @@ import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 
 import {responsiveTitle1} from '../components/typography.module.css'
+const category_title = 'Traditional Leaders'
+const category_page_title = "Ghana's " + category_title
 
 export const query = graphql`
-  query EntrepreneursPage {
+  query TraditionalLeadersPage  {
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {title: {eq: "Entrepreneurs"}}}}
+      filter: {categories: {elemMatch: {title: {eq: "Traditional Leaders"}}}}
       
     ) {
       edges {
@@ -53,7 +55,7 @@ export const query = graphql`
   }
 `
 
-const EntrepreneursPage = props => {
+const TraditionalLeadersPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -66,13 +68,13 @@ const EntrepreneursPage = props => {
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
-      <SEO title='Ghanas Most Influential' />
+      <SEO title= {category_page_title} />
       <Container>
-        <h1 className={responsiveTitle1}>Ghana's Entrepreneurs</h1>
+        <h1 className={responsiveTitle1}>{category_page_title}</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default EntrepreneursPage
+export default TraditionalLeadersPage

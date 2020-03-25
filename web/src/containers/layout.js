@@ -6,6 +6,7 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
+      figure{asset{url}}
     }
   }
 `
@@ -32,6 +33,7 @@ function LayoutContainer (props) {
             {...props}
             showNav={showNav}
             siteTitle={data.site.title}
+            siteLogo={data.site.figure.asset.url}
             onHideNav={handleHideNav}
             onShowNav={handleShowNav}
           />

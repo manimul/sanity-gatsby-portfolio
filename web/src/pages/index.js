@@ -10,6 +10,10 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import {hero} from '../components/layout.module.css'
+import {responsiveTitle1} from '../components/typography.module.css'
+
+
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,6 +22,7 @@ export const query = graphql`
       subtitle
       description
       keywords
+      figure {asset {url}}
     }
     projects: allSanitySampleProject(
       limit: 6
@@ -87,8 +92,13 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <section class={hero} id="hero">
+          <h1 class={responsiveTitle1}> {site.subtitle}</h1>
+        </section>
       <Container>
-        <h1> {site.title}</h1>
+        
+        
+        <section id="featured_profiles">
         <h2>Ghanas Most Influential</h2>
         {projectNodes && (
           <ProjectPreviewGrid
@@ -96,8 +106,20 @@ const IndexPage = props => {
             nodes={projectNodes}
             browseMoreHref='/category/'
           />
-        )}
+        )}</section>
+          <section id="featured_news">
+        <h2>Ghanas Entrepreneurs</h2>
+        {projectNodes && (
+          <ProjectPreviewGrid
+            title=''
+            nodes={projectNodes}
+            browseMoreHref='/category/'
+          />
+        )}</section>
+        <section>Newsletter Signup</section>
+        <section>Contact</section>
       </Container>
+      
     </Layout>
   )
 }

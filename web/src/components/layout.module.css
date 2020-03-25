@@ -9,6 +9,16 @@
     min-height: calc(100% - 88px - 150px);
   }
 }
+.hero{
+  text-align: center;
+  background: var(--color-very-light-gray);
+  min-height: 20vh;
+  padding: 4.5em;
+}
+
+h1{
+  font-size: var(--font-large-size);
+}
 
 .footer {
   border-top: 1px solid var(--color-very-light-gray);
