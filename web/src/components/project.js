@@ -18,9 +18,9 @@ import styles from './project.module.css'
 function Project (props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
-    <article className={styles.root}>
+    <article className={"container mx-auto flex py-12"}>
       {props.mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
+        <div className={"w-3/5"}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -31,16 +31,23 @@ function Project (props) {
           />
         </div>
       )}
-      <Container>
-        <div className={styles.grid}>
+      
+        <div className={"w-2/5 mx-5"}>
           <div className={styles.mainContent}>
+            
+          {categories.map(category => (
+                    <p  className="inline-block bg-yellow-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-900 mr-2" key={category._id}>{category.title}</p>
+                  ))}
+                 
             <h1 className={styles.title}>{title}</h1>
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Born</h3>
+              <div className={"py-6"}>
+              
+                <h3 className={"font-bold my-3 opacity-50 "}>Born</h3>
+                <hr className={"py-1  max-w-2  border-t border-yellow-700"}></hr>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
@@ -48,8 +55,10 @@ function Project (props) {
             )}
             {members && members.length > 0 && <RoleList items={members} title='Project members' />}
             {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+              <div>
+              
+              <h3 className={"font-bold my-3 opacity-50 "}>Categories</h3>
+                <hr className={"py-1  max-w-2  border-t border-yellow-700"}></hr>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category.title}</li>
@@ -58,8 +67,9 @@ function Project (props) {
               </div>
             )}
             {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related Profiles</h3>
+              <div>
+                <h3 className={"font-bold my-3 opacity-50 "}>Related Profiles</h3>
+                <hr className={"py-1  max-w-2  border-t border-yellow-700"}></hr>
                 <ul>
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
@@ -75,7 +85,7 @@ function Project (props) {
             )}
           </aside>
         </div>
-      </Container>
+      
     </article>
   )
 }

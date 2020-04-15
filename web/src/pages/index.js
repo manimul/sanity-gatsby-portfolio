@@ -12,6 +12,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {hero} from '../components/layout.module.css'
 import {responsiveTitle1} from '../components/typography.module.css'
+import heroImg from '../img/hero-img.png'
 
 
 
@@ -97,7 +98,7 @@ const IndexPage = props => {
        
 
 <section class={hero} id="hero">
-<div class="py-32 h-auto">
+<div class="py-16 h-auto">
 
 	<div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 	
@@ -108,12 +109,12 @@ const IndexPage = props => {
 		
 			
 
-			<button class="mx-auto lg:mx-0 hover:underline bg-yellow-700 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">Learn More</button>
+			<a href="#featured_profiles"><button class="mx-auto lg:mx-0 hover:underline bg-yellow-700 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">Learn More</button></a>
 			
 		</div>
 	
-		<div class="w-full md:w-3/5 py-6 text-center">
-			<img class="w-full md:w-4/5 z-50" src="hero.png"></img>
+		<div class="w-full md:w-3/5 text-center">
+			<img class="w-full md:w-5/5 z-50" src={heroImg}></img>
 		</div>
 		
 	</div>
@@ -125,25 +126,39 @@ const IndexPage = props => {
         
         
         <section id="featured_profiles">
-        <h2>Ghanas Most Influential</h2>
+       
         {projectNodes && (
           <ProjectPreviewGrid
-            title=''
+            title={"Recently Added"}
             nodes={projectNodes}
             browseMoreHref='/category/'
           />
         )}</section>
           <section id="featured_news">
-        <h2>Ghanas Entrepreneurs</h2>
         {projectNodes && (
           <ProjectPreviewGrid
-            title=''
+            title='Most Popular'
             nodes={projectNodes}
             browseMoreHref='/category/'
           />
         )}</section>
-        <section>Newsletter Signup</section>
-        <section>Contact</section>
+        <section>
+
+        <div class="w-full   border-t  border-b border-yellow-600" >
+  <div class=" p-10  py-20  flex  flex-col  flex-wrap  justify-center  content-center">
+    <div class=" m-0  p-0  text-3xl  text-white  antialiased  text-center">Get Our Updates</div>
+    <div class=" m-0  p-0  text-xl  text-white  antialiased  text-center">Find out about events and other news</div>
+    <div class=" mt-5  flex  flex-row  flex-wrap">
+      <input type="text" class=" text-gray-600  w-2/3  p-3" placeholder="john@mail.com"/>
+      <button class=" p-3  w-1/3  bg-yellow-600   text-white hover:bg-yellow-700" type="button">Subscribe</button>
+    </div>
+  </div>
+</div>
+</section>
+
+   <section>
+   
+        </section>
       </Container>
       
     </Layout>

@@ -6,8 +6,8 @@ import {cn} from '../lib/helpers'
 import styles from './header.module.css'
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
-  <div className={cn("border-b border-yellow-600  text-white", styles.root)}>
-    <div className={ styles.wrapper}>
+  <div className={cn("  text-white", styles.root)}>
+    <div className={cn("container", styles.wrapper)}>
       <div className={ styles.branding}>
         <Link to='/'><img src={siteLogo}/></Link>
         

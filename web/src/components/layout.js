@@ -8,7 +8,7 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle, siteLogo}) 
   <>
   <div className="master-wrapper bg-gradient-brand ">
     <Header siteTitle={siteTitle} siteLogo={siteLogo} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
-    <div className={styles.content}>{children}</div>
+    <div className={"container",styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>

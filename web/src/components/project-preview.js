@@ -10,9 +10,10 @@ import {responsiveTitle3} from './typography.module.css'
 function ProjectPreview (props) {
   return (
     <Link className={styles.root} to={`/project/${props.slug.current}`}>
-      <div className={styles.leadMediaThumb}>
+      <div className={"max-w-sm rounded overflow-hidden shadow-2xl"}>
+        
         {props.mainImage && props.mainImage.asset && (
-          <img
+          <img className="w-full"
             src={imageUrlFor(buildImageObj(props.mainImage))
               .width(600)
               .height(Math.floor((9 / 16) * 600))
@@ -20,13 +21,20 @@ function ProjectPreview (props) {
             alt={props.mainImage.alt}
           />
         )}
-      </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <div className={"px-4 py-4 "}>
+      
+      <h3 className={"font-bold text-sm mb-1 uppercase"}>{props.title}</h3>
       {props._rawExcerpt && (
-        <div className={styles.excerpt}>
+        <div className={"text-xs mb-1 text-gray-500"}>
           <BlockText blocks={props._rawExcerpt} />
         </div>
+        
       )}
+      <div className={"text-xs mb-1 text-gray-500"}>
+          
+        </div>
+      </div>
+      </div>
     </Link>
   )
 }
