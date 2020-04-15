@@ -6,9 +6,9 @@ import {cn} from '../lib/helpers'
 import styles from './header.module.css'
 
 const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      <div className={styles.branding}>
+  <div className={cn("border-b border-yellow-600  text-white", styles.root)}>
+    <div className={ styles.wrapper}>
+      <div className={ styles.branding}>
         <Link to='/'><img src={siteLogo}/></Link>
         
         
@@ -18,9 +18,9 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
         <Icon symbol='hamburger' />
       </button>
 
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
+      <nav className={cn("uppercase",styles.nav, showNav && styles.showNav )}>
         <ul>
-          <li>
+          <li className="uppercase">
             <Link to='/influential/'>Most Influential</Link>
           </li>
           <li>
@@ -36,17 +36,9 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
           <Link to='/power-ladies/'>Power Ladies</Link>
           </li>
           <li>
-          <Link to='/statesmen/'>Statesmen</Link>
+          <Link to='#'>More</Link>
           </li>
-          <li>
-          <Link to='/traditional-leaders/'>Traditional Leaders</Link>
-          </li>
-          <li>
-          <Link to='/politicians/'>Politcians</Link>
-          </li>
-          <li>
-          <Link to='/media-industry/'>Media</Link>
-          </li>
+        
     
         </ul>
       </nav>

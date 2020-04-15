@@ -4,6 +4,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
+import '../styles/global.css'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 

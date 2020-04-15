@@ -2,7 +2,6 @@
 @import '../styles/custom-properties.css';
 
 .content {
-  background: var(--color-white);
   min-height: calc(100% - 73px - 120px);
 
   @media (--media-min-small) {
@@ -11,9 +10,8 @@
 }
 .hero{
   text-align: center;
-  background: var(--color-very-light-gray);
-  min-height: 20vh;
-  padding: 4.5em;
+  background-image:none;
+  
 }
 
 h1{

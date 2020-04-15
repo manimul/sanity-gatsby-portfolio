@@ -9,6 +9,12 @@ import RoleList from './role-list'
 
 import styles from './project.module.css'
 
+<div class="flex mb-4 py-32">
+  <div class="w-3/4 bg-gray-500 h-12"></div>
+  <div class="w-1/4 bg-gray-400 h-12"></div>
+</div>
+
+
 function Project (props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
