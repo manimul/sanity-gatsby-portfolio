@@ -8,7 +8,7 @@ function ProjectPreviewGrid (props) {
   return (
    
     <div className={ styles.root}>
-      <hr className={"py-4  max-w-xs mx-auto border-t border-yellow-700"}></hr>
+      <hr className={"py-4 w-8 mx-auto border-t border-brand-accent"}></hr>
       {props.title && <h2 className={"uppercase text-2xl py-4"}>{props.title}</h2>}
       <ul className={styles.grid}>
         {props.nodes &&
@@ -19,7 +19,7 @@ function ProjectPreviewGrid (props) {
           ))}
       </ul>
       {props.browseMoreHref && (
-        <div className={"uppercase text-right text-yellow-700"}>
+        <div className={"uppercase text-right text-brand-accent"}>
           <Link to={props.browseMoreHref}>Browse more</Link>
         </div>
       )}

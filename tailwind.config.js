@@ -1,13 +1,18 @@
 module.exports = {
   theme: {
-    fontFamily: {
-      display: ['Gilroy', 'sans-serif'],
-      body: ['Graphik', 'sans-serif'],
+    colors:{
+      brand: {
+        accent: '#ED9700',
+        default: '#171929',
+        lighter: '#343749',
+        dark: '#0E0E11',
+      }
     },
-    extend: {
-
-      
-    },
+  
+    
+    
+ 
+    extend: {},
   },
   variants: {},
   plugins: [],

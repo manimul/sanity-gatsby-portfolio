@@ -10,7 +10,7 @@ import {responsiveTitle3} from './typography.module.css'
 function ProjectPreview (props) {
   return (
     <Link className={styles.root} to={`/project/${props.slug.current}`}>
-      <div className={"max-w-sm rounded overflow-hidden shadow-2xl"}>
+      <div className={"max-w-sm  rounded overflow-hidden shadow-2xl bg-brand"}>
         
         {props.mainImage && props.mainImage.asset && (
           <img className="w-full"

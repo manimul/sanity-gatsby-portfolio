@@ -19,7 +19,6 @@ h1{
 }
 
 .footer {
-  border-top: 1px solid var(--color-very-light-gray);
 
   @nest & a {
     color: inherit;

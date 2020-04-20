@@ -9,18 +9,14 @@ import RoleList from './role-list'
 
 import styles from './project.module.css'
 
-<div class="flex mb-4 py-32">
-  <div class="w-3/4 bg-gray-500 h-12"></div>
-  <div class="w-1/4 bg-gray-400 h-12"></div>
-</div>
 
 
 function Project (props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
-    <article className={"container mx-auto flex py-12"}>
+    <article className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
       {props.mainImage && mainImage.asset && (
-        <div className={"w-3/5"}>
+        <div className={"w-full md:w-3/5"}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -32,7 +28,7 @@ function Project (props) {
         </div>
       )}
       
-        <div className={"w-2/5 mx-5"}>
+        <div className={"w-full  md:w-2/5 pt-8 md:pt-0 md:px-8"}>
           <div className={styles.mainContent}>
             
           {categories.map(category => (

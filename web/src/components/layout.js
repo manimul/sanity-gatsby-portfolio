@@ -9,10 +9,10 @@ const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle, siteLogo}) 
   <div className="master-wrapper bg-gradient-brand ">
     <Header siteTitle={siteTitle} siteLogo={siteLogo} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <div className={"container",styles.content}>{children}</div>
-    <footer className={styles.footer}>
+    <footer className={'bg-brand-dark'}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
-          © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
+          © {new Date().getFullYear()}, WWiG - Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
           {` `}
           <a href='https://www.gatsbyjs.org'>Gatsby</a>
         </div>
