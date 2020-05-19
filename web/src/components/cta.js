@@ -25,8 +25,7 @@ function Cta (props) {
 
 Cta.defaultProps = {
     title: '',
-    nodes: [],
-    browseMoreHref: ''
+    subtitle: '',
   }
   
   export default Cta

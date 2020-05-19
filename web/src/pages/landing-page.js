@@ -13,7 +13,6 @@ import Layout from '../containers/layout'
 import Hero from '../components/hero'
 import Cta from '../components/cta'
 import CategoryPreviewGrid from '../components/category-preview-grid'
-import Footer from '../components/footer'
 import {hero} from '../components/layout.module.css'
 import {responsiveTitle1} from '../components/typography.module.css'
 import heroImg from '../img/hero-img.png'
@@ -21,7 +20,7 @@ import heroImg from '../img/hero-img.png'
 
 
 export const query = graphql`
-  query IndexPageQuery {
+  query LandingPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       subtitle
@@ -29,19 +28,6 @@ export const query = graphql`
       keywords
       figure {asset {url}}
     }
-    
-    categories: allSanityCategory(
-      limit:20
-    )
-     {
-    edges {
-      node {
-        id
-        title
-        description
-      }
-    }
-  }
     projects: allSanitySampleProject(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
@@ -83,7 +69,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+const LandingPage = props => {
   const {data, errors} = props
 
   if (errors) {
@@ -99,9 +85,6 @@ const IndexPage = props => {
     ? mapEdgesToNodes(data.projects)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
-    : []
-    const categoryNodes = (data || {}).categories
-    ? mapEdgesToNodes(data.categories)
     : []
 
   if (!site) {
@@ -128,12 +111,8 @@ const IndexPage = props => {
 
 <Cta></Cta>
 {projectNodes && (
-<CategoryPreviewGrid
-title={"Recently Added"}
-            nodes={categoryNodes}
-            browseMoreHref='/category/'
+<CategoryPreviewGrid></CategoryPreviewGrid>)}
 
-/>)}
           <section id="featured_news">
         {projectNodes && (
           <ProjectPreviewGrid
@@ -144,12 +123,9 @@ title={"Recently Added"}
         )}</section>
        
   <Cta></Cta>
-  
 </Container>
-
 </Layout>
-
   )
 }
 
-export default IndexPage
+export default LandingPage
