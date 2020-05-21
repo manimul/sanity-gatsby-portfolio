@@ -21,7 +21,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
       <nav className={cn("uppercase",styles.nav, showNav && styles.showNav )}>
         <ul>
           <li className="uppercase">
-            <Link to='/influential/'>Most Influential</Link>
+            <Link to='/most-influential/'>Most Influential</Link>
           </li>
           <li>
           <Link to='/entrepreneurs/'>Entrepreneurs</Link>

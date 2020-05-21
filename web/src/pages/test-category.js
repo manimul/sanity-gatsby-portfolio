@@ -3,14 +3,25 @@ import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
+import CategoryPageBlock from '../components/category-page-block'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 
 import {responsiveTitle1} from '../components/typography.module.css'
 
-export const query = graphql`
-  query InfluentialPageQuery {
+
+
+export const query2 = graphql`
+  query CategoryPageQuery {
+    categories: sanityCategory(id: {eq: "2243b0bb-9899-55bc-a77b-87a7ecd6af64"}) {
+    id
+    title
+    slug {
+      current
+    }
+    description
+  }
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
@@ -51,8 +62,7 @@ export const query = graphql`
     }
   }
 `
-
-const InfluentialPage = props => {
+const CategoryPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -61,17 +71,26 @@ const InfluentialPage = props => {
       </Layout>
     )
   }
+
+
   const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    data && data.projects  && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
-      <SEO title='Ghanas Most Influential' />
+      <SEO title={data.categories.title} />
       <Container>
-        <h1 className={responsiveTitle1}>Ghana's Most Influential</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+
+
+        {projectNodes && projectNodes.length > 0 && <CategoryPageBlock 
+       title={data.categories.title}
+        subtitle={data.categories.subtitle}
+        description={data.categories.description}
+        nodes={projectNodes} />}
+
+        
       </Container>
     </Layout>
   )
 }
 
-export default InfluentialPage
+export default CategoryPage

@@ -9,6 +9,16 @@ export default {
       title: 'Title'
     },
     {
+      name: 'subtitle',
+      type: 'string',
+      title: 'Subtitle'
+    },
+    {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'figure'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',

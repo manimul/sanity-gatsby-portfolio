@@ -8,7 +8,8 @@ import heroImg from '../img/hero-img.png'
 
 function CategoryPreview (props) {
   return (
-    <Link to={`/project/${props.title}`}>
+    <Link to={`/${props.slug.current}`}>
+        
       <div className={"max-w-sm  rounded overflow-hidden shadow-2xl bg-brand"}>
         
         
