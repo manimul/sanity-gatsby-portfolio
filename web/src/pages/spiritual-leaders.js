@@ -46,7 +46,7 @@ export const query = graphql`
             alt
           }
   }
-    projects: allSanitySampleProject(
+    profiles: allSanitySampleProfile(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {categories: {elemMatch: {id: {eq: "d122ee30-9cc7-5309-854f-a7b84d43addd"}}}}
@@ -97,20 +97,20 @@ const SpiritualLeadersPage = props => {
   }
 
 
-  const projectNodes =
-    data && data.projects  && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  const profileNodes =
+    data && data.profiles  && mapEdgesToNodes(data.profiles).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title={data.categories.title} />
       <Container>
 
 
-        {projectNodes && projectNodes.length > 0 && <CategoryPageBlock 
+        {profileNodes && profileNodes.length > 0 && <CategoryPageBlock 
        title={data.categories.title}
         subtitle={categorySubtitle}
         description={data.categories.description}
         image={data.categories.mainImage.asset.url}
-        nodes={projectNodes} />}
+        nodes={profileNodes} />}
 
         
       </Container>

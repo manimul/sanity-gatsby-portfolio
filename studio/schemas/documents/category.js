@@ -22,7 +22,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the project',
+      description: 'Some frontend will require a slug to be set to be able to show the profile',
       options: {
         source: 'title',
         maxLength: 96

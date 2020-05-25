@@ -12,7 +12,7 @@ import styles from './profile.module.css'
 
 
 function Profile (props) {
-  const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
+  const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProfiles} = props
   return (
     <section id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
       <div className="flex-row w-full py-5">
@@ -49,7 +49,7 @@ function Profile (props) {
 
           <aside className={styles.metaContent}>
       
-            {members && members.length > 0 && <RoleList items={members} title='Project members' />}
+            {members && members.length > 0 && <RoleList items={members} title='Profile members' />}
             {categories && categories.length > 0 && (
               <div>
               
@@ -62,17 +62,17 @@ function Profile (props) {
                 </ul>
               </div>
             )}
-            {relatedProjects && relatedProjects.length > 0 && (
+            {relatedProfiles && relatedProfiles.length > 0 && (
               <div>
                 <h3 className={"font-bold my-3 opacity-50 "}>Related Profiles</h3>
                 <hr className={"py-1  max-w-2  border-t border-yellow-700"}></hr>
                 <ul>
-                  {relatedProjects.map(project => (
-                    <li key={`related_${project._id}`}>
-                      {project.slug ? (
-                        <Link to={`/profile/${project.slug.current}`}>{project.title}</Link>
+                  {relatedProfiles.map(profile => (
+                    <li key={`related_${profile._id}`}>
+                      {profile.slug ? (
+                        <Link to={`/profile/${profile.slug.current}`}>{profile.title}</Link>
                       ) : (
-                        <span>{project.title}</span>
+                        <span>{profile.title}</span>
                       )}
                     </li>
                   ))}

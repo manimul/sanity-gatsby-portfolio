@@ -70,7 +70,7 @@ export const query = graphql`
       }
     }
   }
-    projects: allSanitySampleProject(
+    profiles: allSanitySampleProfile(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -123,8 +123,8 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const profileNodes = (data || {}).profiles
+    ? mapEdgesToNodes(data.profiles)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
@@ -162,10 +162,10 @@ const IndexPage = props => {
         </section>
 
         <section id="featured_profiles">
-          {projectNodes && (
+          {profileNodes && (
             <ProfilePreviewGrid
               title='Most Popular'
-              nodes={projectNodes}
+              nodes={profileNodes}
               browseMoreHref='/category/'
             />
           )}

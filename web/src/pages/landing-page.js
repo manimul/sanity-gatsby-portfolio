@@ -28,7 +28,7 @@ export const query = graphql`
       keywords
       figure {asset {url}}
     }
-    projects: allSanitySampleProject(
+    profiles: allSanitySampleProfile(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -81,8 +81,8 @@ const LandingPage = props => {
   }
 
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const profileNodes = (data || {}).profiles
+    ? mapEdgesToNodes(data.profiles)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
@@ -101,23 +101,23 @@ const LandingPage = props => {
         
           <section id="featured_profiles">
        
-        {projectNodes && (
+        {profileNodes && (
           <ProfilePreviewGrid
             title={"Recently Added"}
-            nodes={projectNodes}
+            nodes={profileNodes}
             browseMoreHref='/category/'
           />
         )}</section>
 
 <Cta></Cta>
-{projectNodes && (
+{profileNodes && (
 <CategoryPreviewGrid></CategoryPreviewGrid>)}
 
           <section id="featured_news">
-        {projectNodes && (
+        {profileNodes && (
           <ProfilePreviewGrid
             title='Most Popular'
-            nodes={projectNodes}
+            nodes={profileNodes}
             browseMoreHref='/category/'
           />
         )}</section>

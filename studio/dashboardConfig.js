@@ -8,7 +8,7 @@ export default {
     },
     {name: 'structure-menu'},
     {
-      name: 'project-info',
+      name: 'profile-info',
       options: {
         __experimental_before: [
           {
@@ -47,10 +47,10 @@ export default {
         ]
       }
     },
-    {name: 'project-users', layout: {height: 'auto'}},
+    {name: 'profile-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['sampleProject']},
+      options: {title: 'Recent profiles', order: '_createdAt desc', types: ['sampleProfile']},
       layout: {width: 'medium'}
     }
   ]

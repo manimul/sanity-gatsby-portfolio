@@ -83,8 +83,8 @@ const CategoriesPage = props => {
   }
 
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const profileNodes = (data || {}).profiles
+    ? mapEdgesToNodes(data.profiles)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []

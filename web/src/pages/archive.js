@@ -11,7 +11,7 @@ import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
   query ArchivePageQuery {
-    projects: allSanitySampleProject(
+    profiles: allSanitySampleProfile(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}  
@@ -61,14 +61,14 @@ const ArchivePage = props => {
       </Layout>
     )
   }
-  const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  const profileNodes =
+    data && data.profiles && mapEdgesToNodes(data.profiles).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title='Ghanas Most Influential' />
       <Container>
         <h1 className={responsiveTitle1}>Ghana's Most Influential</h1>
-        {projectNodes && projectNodes.length > 0 && <ProfilePreviewGrid nodes={projectNodes} />}
+        {profileNodes && profileNodes.length > 0 && <ProfilePreviewGrid nodes={profileNodes} />}
       </Container>
     </Layout>
   )

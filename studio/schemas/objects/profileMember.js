@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'projectMember',
-  title: 'Project Member',
+  name: 'profileMember',
+  title: 'Profile Member',
   fields: [
     {
       title: 'Person',

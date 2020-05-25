@@ -8,14 +8,14 @@ import Layout from '../containers/layout'
 
 export const query = graphql`
   query ProfileTemplateQuery($id: String!) {
-    sampleProject: sanitySampleProject(id: {eq: $id}) {
+    sampleProfile: sanitySampleProfile(id: {eq: $id}) {
       id
       publishedAt
       categories {
         _id
         title
       }
-      relatedProjects {
+      relatedProfiles {
         title
         _id
         slug {
@@ -83,18 +83,18 @@ export const query = graphql`
 
 const ProfileTemplate = props => {
   const {data, errors} = props
-  const project = data && data.sampleProject
+  const profile = data && data.sampleProfile
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {project && <SEO title={project.title || 'Untitled'} />}
+      {profile && <SEO title={profile.title || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {project && <Profile {...project} />}
+      {profile && <Profile {...profile} />}
     </Layout>
   )
 }

@@ -7,15 +7,15 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Document types
 import category from './documents/category'
 import person from './documents/person'
-import sampleProject from './documents/sampleProject'
+import sampleProfile from './documents/sampleProfile'
 import siteSettings from './documents/siteSettings'
 import page from './documents/page'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
 import figure from './objects/figure'
-import projectMember from './objects/projectMember'
-import projectPortableText from './objects/projectPortableText'
+import profileMember from './objects/profileMember'
+import profilePortableText from './objects/profilePortableText'
 import simplePortableText from './objects/simplePortableText'
 import youtube from './objects/youtube'
 
@@ -30,15 +30,15 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     bioPortableText,
     figure,
-    projectMember,
-    projectPortableText,
+    profileMember,
+    profilePortableText,
     simplePortableText,
     youtube,
     // The following are document types which will appear
     // in the studio.
     category,
     person,
-    sampleProject,
+    sampleProfile,
     siteSettings,
     page
   ])

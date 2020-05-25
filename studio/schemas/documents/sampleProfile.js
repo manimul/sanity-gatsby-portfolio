@@ -1,8 +1,8 @@
 import {format} from 'date-fns'
 
 export default {
-  name: 'sampleProject',
-  title: 'Sample project',
+  name: 'sampleProfile',
+  title: 'Sample profile',
   type: 'document',
   fields: [
     {
@@ -14,7 +14,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the project',
+      description: 'Some frontend will require a slug to be set to be able to show the profile',
       options: {
         source: 'title',
         maxLength: 96
@@ -23,7 +23,7 @@ export default {
     {
       name: 'publishedAt',
       title: 'Published at',
-      description: 'You can use this field to schedule projects where you show them',
+      description: 'You can use this field to schedule profiles where you show them',
       type: 'datetime'
     },
     {
@@ -35,7 +35,7 @@ export default {
       name: 'members',
       title: 'Members',
       type: 'array',
-      of: [{type: 'projectMember'}]
+      of: [{type: 'profileMember'}]
     },
     {
       name: 'startedAt',
@@ -61,13 +61,13 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'projectPortableText'
+      type: 'profilePortableText'
     },
     {
-      name: 'relatedProjects',
-      title: 'Related projects',
+      name: 'relatedProfiles',
+      title: 'Related profiles',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'sampleProject'}}]
+      of: [{type: 'reference', to: {type: 'sampleProfile'}}]
     }
   ],
   preview: {
