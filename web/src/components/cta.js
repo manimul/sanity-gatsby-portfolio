@@ -6,19 +6,19 @@ import bookImg from '../img/book-cover.png'
 
 function Cta (props) {
     return (
-        <div class="my-32 lg:py-12 lg:flex lg:justify-center">
-        <div class="bg-cta bg-fixed lg:mx-8 lg:flex lg:w-full shadow-2xl lg:rounded-lg">
-            <div class="lg:w-1/2">
+        <div class="my-32 text-base lg:justify-center">
+        <div class="bg-cta py-8 bg-fixed md:mx-8 flex flex-col md:flex-row shadow-2xl rounded-lg">
+            <div class="w-full md:w-1/2">
                 
-                <img src={bookImg} class="absolute -mt-24 w-2/7" />
+                <img src={bookImg} class="w-auto -mt-24  md:absolute md:-mt-24 md:w-2/7" />
             </div>
-            <div class="py-12 pr-24 max-w-xl lg:max-w-5xl lg:w-1/2">
-                <div class="">
-                <h2 class="leading-tight text-4xl font-bold flex">The only book to profile Ghana's V.I.Ps</h2>
-                <p class="mt-4 mb-8 text-gray-600 flex-row">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus enim expedita.</p>
-                <a href="#" class="bg-brand-accent inline-block text-gray-100 px-5 py-3 font-semibold rounded">Explore</a>
+            <div class="pb-6 px-6 md:py-12 md:pr-24 text-center md:text-left w-full md:w-1/2">
+                
+                <h2 class="leading-tight text-xl md:text-4xl font-bold ">The only book to profile Ghana's V.I.Ps</h2>
+                <p class="my-4 md:mb-8  block">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae exercitationem aliquid dolores ullam temporibus enim expedita.</p>
+                <a href="#" class="bg-brand-accent inline-block px-5 py-3 font-semibold rounded">Explore</a>
 
-                </div>
+                
                 
             </div>
         </div>

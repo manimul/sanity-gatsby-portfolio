@@ -23,11 +23,11 @@ function Project (props) {
       <h1 className="w-full text-5xl font-extrabold" >{title}</h1>
       <h2 className="w-full text-xl font-semibold" >{title}</h2>
       </div>
-<div>
-<div className="flex">
+
+<div className="flex flex-col md:flex-row ">
 
       {props.mainImage && mainImage.asset && (
-        <div className={"w-1/2"}>
+        <div className="w-full md:w-1/2">
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -39,7 +39,7 @@ function Project (props) {
         </div>
       )}
       
-        <div className={"bg-white text-brand-dark w-1/2 p-12"}>
+        <div className={"bg-white text-brand-dark w-full md:w-1/2 p-12"}>
           <div >
           {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
@@ -80,7 +80,7 @@ function Project (props) {
               </div>
             )}
           </aside>
-        </div>
+        
       
     </article>
   )

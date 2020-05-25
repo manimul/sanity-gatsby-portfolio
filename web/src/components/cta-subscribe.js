@@ -8,18 +8,18 @@ import profileImg from '../img/profile.png'
 function CtaSubscribe (props) {
     return (
      
-    <div class="my-32 lg:py-12 lg:flex lg:justify-center">
-        <div class="bg-cta  lg:mx-8 lg:flex lg:w-full  relative shadow-2xl lg:rounded-lg">
-        <div class="py-12 px-24 max-w-xl lg:max-w-5xl  lg:w-1/2">
-                <h2 class=" leading-tight text-4xl text-gray-800 font-bold">Are you sure you know Sarkodie? </h2>
-                <p class="mt-4 text-gray-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae.</p>
-                <div class="mt-8">
-                    <a href="#" class="bg-brand-accent inline-block text-gray-100 px-5 py-3 font-semibold rounded">Subscribe Now</a>
-                </div>
-            </div>
-            <div class="lg:w-1/2">
+    <div class="my-32 text-base lg:justify-center">
+        <div class="bg-cta  py-8 bg-fixed md:mx-8  flex flex-col md:flex-row relative shadow-2xl rounded-lg">
+        <div class="pb-6 px-6 md:p-12 text-center md:text-left  w-full lg:w-1/2">
+                <h2 class="leading-tight text-xl md:text-4xl font-bold">Are you sure you know Sarkodie? </h2>
+                <p class="my-4 md:mb-8  block">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit vitae.</p>
                 
-                <img src={profileImg} class="absolute bottom-0 w-2/7" />
+                    <a href="#" class="bg-brand-accent inline-block text-gray-100 px-5 py-3 font-semibold rounded">Subscribe Now</a>
+              
+            </div>
+            <div class="w-full md:w-1/2 h-64">
+                
+                <img src={profileImg} class="absolute bottom-0 w-auto md:w-2/7" />
             </div>
            
         </div>
