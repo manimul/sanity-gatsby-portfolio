@@ -7,14 +7,14 @@ import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
 
-import styles from './project.module.css'
+import styles from './profile.module.css'
 
 
 
-function Project (props) {
+function Profile (props) {
   const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProjects} = props
   return (
-    <article className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
+    <section id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
       <div className="flex-row w-full py-5">
       
       {categories.map(category => (
@@ -40,7 +40,7 @@ function Project (props) {
       )}
       
         <div className={"bg-white text-brand-dark w-full md:w-1/2 p-12"}>
-          <div >
+          <div id="content" >
           {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
 
@@ -70,7 +70,7 @@ function Project (props) {
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>
                       {project.slug ? (
-                        <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
+                        <Link to={`/profile/${project.slug.current}`}>{project.title}</Link>
                       ) : (
                         <span>{project.title}</span>
                       )}
@@ -82,8 +82,8 @@ function Project (props) {
           </aside>
         
       
-    </article>
+    </section>
   )
 }
 
-export default Project
+export default Profile

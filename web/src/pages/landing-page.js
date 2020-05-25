@@ -7,7 +7,7 @@ import {
 } from '../lib/helpers'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import ProfilePreviewGrid from '../components/profile-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import Hero from '../components/hero'
@@ -102,7 +102,7 @@ const LandingPage = props => {
           <section id="featured_profiles">
        
         {projectNodes && (
-          <ProjectPreviewGrid
+          <ProfilePreviewGrid
             title={"Recently Added"}
             nodes={projectNodes}
             browseMoreHref='/category/'
@@ -115,7 +115,7 @@ const LandingPage = props => {
 
           <section id="featured_news">
         {projectNodes && (
-          <ProjectPreviewGrid
+          <ProfilePreviewGrid
             title='Most Popular'
             nodes={projectNodes}
             browseMoreHref='/category/'

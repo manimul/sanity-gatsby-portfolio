@@ -4,12 +4,12 @@ import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockText from './block-text'
 
-import styles from './project-preview.module.css'
+import styles from './profile-preview.module.css'
 import {responsiveTitle3} from './typography.module.css'
 
-function ProjectPreview (props) {
+function ProfilePreview (props) {
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
+    <Link className={styles.root} to={`/profile/${props.slug.current}`}>
       <div className={"max-w-sm  rounded overflow-hidden shadow-2xl bg-brand"}>
         
         {props.mainImage && props.mainImage.asset && (
@@ -39,4 +39,4 @@ function ProjectPreview (props) {
   )
 }
 
-export default ProjectPreview
+export default ProfilePreview

@@ -1,10 +1,10 @@
 import {Link} from 'gatsby'
 import React from 'react'
-import ProjectPreview from './project-preview'
+import ProfilePreview from './profile-preview'
 
-import styles from './project-preview-grid.module.css'
+import styles from './profile-preview-grid.module.css'
 
-function ProjectPreviewGrid (props) {
+function ProfilePreviewGrid (props) {
   return (
    
     <div className={"my-20"}>
@@ -14,7 +14,7 @@ function ProjectPreviewGrid (props) {
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              <ProjectPreview {...node} />
+              <ProfilePreview {...node} />
             </li>
           ))}
       </ul>
@@ -27,10 +27,10 @@ function ProjectPreviewGrid (props) {
   )
 }
 
-ProjectPreviewGrid.defaultProps = {
+ProfilePreviewGrid.defaultProps = {
   title: '',
   nodes: [],
   browseMoreHref: ''
 }
 
-export default ProjectPreviewGrid
+export default ProfilePreviewGrid

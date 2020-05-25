@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from './container'
 import GraphQLErrorList from './graphql-error-list'
-import ProjectPreviewGrid from './project-preview-grid'
+import ProfilePreviewGrid from './profile-preview-grid'
 import Cta from './cta'
 import SEO from './seo'
 import Layout from './layout'
@@ -23,7 +23,7 @@ function CategoryPageBlock (props) {
             image={props.image}
 
             />
-        <ProjectPreviewGrid
+        <ProfilePreviewGrid
         {...props}
         nodes={props.nodes}
         />

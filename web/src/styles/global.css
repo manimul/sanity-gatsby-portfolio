@@ -19,3 +19,7 @@
     background-attachment: fixed;
     background-size:cover;
   }
+
+  #profile-page #content p{
+    padding-bottom:1em;
+  }

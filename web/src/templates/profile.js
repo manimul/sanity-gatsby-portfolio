@@ -2,12 +2,12 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Project from '../components/project'
+import Profile from '../components/profile'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query ProjectTemplateQuery($id: String!) {
+  query ProfileTemplateQuery($id: String!) {
     sampleProject: sanitySampleProject(id: {eq: $id}) {
       id
       publishedAt
@@ -81,7 +81,7 @@ export const query = graphql`
   }
 `
 
-const ProjectTemplate = props => {
+const ProfileTemplate = props => {
   const {data, errors} = props
   const project = data && data.sampleProject
   return (
@@ -94,9 +94,9 @@ const ProjectTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {project && <Project {...project} />}
+      {project && <Profile {...project} />}
     </Layout>
   )
 }
 
-export default ProjectTemplate
+export default ProfileTemplate

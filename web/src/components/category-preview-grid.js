@@ -1,7 +1,7 @@
 import {Link} from 'gatsby'
 import React from 'react'
 import CategoryPreview from './category-preview'
-import styles from './project-preview-grid.module.css'
+import styles from './profile-preview-grid.module.css'
 
 
 
