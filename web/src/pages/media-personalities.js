@@ -7,15 +7,14 @@ import CategoryPageBlock from '../components/category-page-block'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
+
 import {responsiveTitle1} from '../components/typography.module.css'
 
 
-const categorySubtitle = "Who's Who in Ghana Presents"
 
-
-export const query = graphql`
-  query StatesmenPageQuery {
-    categories: sanityCategory(id: {eq: "14bd4dfa-1c2f-5bf0-9c4d-dceb511cc7ea"}) {
+export const query2 = graphql`
+  query MediaPersonalitiesPageQuery {
+    categories: sanityCategory(title: {eq: "Media Personalities!"}) {
     id
     title
     slug {
@@ -49,7 +48,7 @@ export const query = graphql`
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {id: {eq: "14bd4dfa-1c2f-5bf0-9c4d-dceb511cc7ea"}}}}
+      filter: {categories: {elemMatch: {title: {eq: "Most Influential"}}}}
     ) {
       edges {
         node {
@@ -86,7 +85,7 @@ export const query = graphql`
     }
   }
 `
-const StatesmenPage = props => {
+const MediaPersonalities = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -107,7 +106,7 @@ const StatesmenPage = props => {
 
         {projectNodes && projectNodes.length > 0 && <CategoryPageBlock 
        title={data.categories.title}
-        subtitle={categorySubtitle}
+        subtitle={data.categories.subtitle}
         description={data.categories.description}
         image={data.categories.mainImage.asset.url}
         nodes={projectNodes} />}
@@ -118,4 +117,4 @@ const StatesmenPage = props => {
   )
 }
 
-export default StatesmenPage
+export default MediaPersonalities 

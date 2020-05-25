@@ -21,6 +21,29 @@ export const query2 = graphql`
       current
     }
     description
+    mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+              url
+            }
+            alt
+          }
   }
     projects: allSanitySampleProject(
       limit: 12
@@ -85,6 +108,7 @@ const CategoryPage = props => {
        title={data.categories.title}
         subtitle={data.categories.subtitle}
         description={data.categories.description}
+        image={data.categories.mainImage.asset.url}
         nodes={projectNodes} />}
 
         

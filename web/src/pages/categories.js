@@ -11,9 +11,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import Hero from '../components/hero'
-import '../styles/global.css'
 import Cta from '../components/cta'
-import CtaSubscribe from '../components/cta-subscribe'
 import CategoryPreviewGrid from '../components/category-preview-grid'
 import Footer from '../components/footer'
 import {hero} from '../components/layout.module.css'
@@ -23,7 +21,7 @@ import heroImg from '../img/hero-img.png'
 
 
 export const query = graphql`
-  query IndexPageQuery {
+  query CategoriesPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       subtitle
@@ -33,7 +31,7 @@ export const query = graphql`
     }
     
     categories: allSanityCategory(
-      limit:2
+      limit:20
     )
      {
     edges {
@@ -69,48 +67,11 @@ export const query = graphql`
       }
     }
   }
-    projects: allSanitySampleProject(
-      limit: 6
-      sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
-    ) {
-      edges {
-        node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+  
   }
 `
 
-const IndexPage = props => {
+const CategoriesPage = props => {
   const {data, errors} = props
 
   if (errors) {
@@ -141,16 +102,13 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container> 
-        <Hero title={site.title} subtitle={site.subtitle} image={heroImg} buttonText={'Show Me More'} />
-        <section id="featured_partners">
-        </section>
 
         <section id="featured_categories">
           {categoryNodes && (
           <CategoryPreviewGrid
-          title={"Category Spotlight"}
+          title={"All Categories"}
                       nodes={categoryNodes}
-                      browseMoreHref='/categories/'
+                      
 
           />)}
         </section>
@@ -158,19 +116,9 @@ const IndexPage = props => {
         <section id="book_promo">
           <Cta></Cta>
         </section>
-
-        <section id="featured_profiles">
-          {projectNodes && (
-            <ProjectPreviewGrid
-              title='Most Popular'
-              nodes={projectNodes}
-              browseMoreHref='/category/'
-            />
-          )}
-        </section>
         
         <section id="subscribe_promo">    
-          <CtaSubscribe></CtaSubscribe>
+          <Cta></Cta>
         </section>
 
       </Container>
@@ -180,4 +128,4 @@ const IndexPage = props => {
   )
 }
 
-export default IndexPage
+export default CategoriesPage 

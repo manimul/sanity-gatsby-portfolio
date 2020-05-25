@@ -20,6 +20,7 @@ function CategoryPageBlock (props) {
             title={props.title}
             subtitle={props.subtitle}
             description={props.description}
+            image={props.image}
 
             />
         <ProjectPreviewGrid

@@ -11,10 +11,10 @@ function Hero (props) {
    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
  <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-     <p class="uppercase tracking-loose w-full">{props.title}</p>
-     <h1 class="my-4 text-5xl font-bold leading-tight">{props.subtitle}</h1>
+     <p class="uppercase tracking-loose w-full">{props.subtitle}</p>
+     <h1 class="my-4 text-5xl font-bold leading-tight">{props.title}</h1>
      <p class="leading-normal text-2xl mb-8">{props.description}</p>
-     <a href="#featured_profiles"><button class="mx-auto lg:mx-0 hover:underline bg-brand-accent text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">{props.buttonText}</button></a>
+     <a href="#featured_profiles"><button class="mx-auto lg:mx-0 hover:underline bg-brand-accent text-white font-bold rounded-sm my-6 py-4 px-8 shadow-2xl">{props.buttonText}</button></a>
 
  </div>
 

@@ -12,11 +12,11 @@ const Footer = ({ siteTitle, siteDescription, siteLogo}) => (
      
       <div class="p-5 w-1/4 ">
       <Link to='/'><img src={siteLogo}/></Link>
-         <p>{siteDescription}</p> 
+         <p class="mt-4">{siteDescription}</p> 
       </div>
       <div class="p-5 w-1/4 ">
          <div class="text-xs uppercase text-gray-500 font-medium">Product</div>
-         <a class="my-3 block" href="/#">Our Products <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Great Deals <span class="text-teal-600 text-xs p-1">New</span></a><a class="my-3 block" href="/#">Analytics <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Mobile <span class="text-teal-600 text-xs p-1"></span></a> 
+         <a class="my-3 block" href="/#">Home<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Categories </a><a class="my-3 block" href="/#">The Book<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Events<span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
       <div class="p-5 w-1/4 ">
          <div class="text-xs uppercase text-gray-500 font-medium">Support</div>
@@ -24,7 +24,7 @@ const Footer = ({ siteTitle, siteDescription, siteLogo}) => (
       </div>
       <div class="p-5 w-1/4 ">
          <div class="text-xs uppercase text-gray-500 font-medium">Contact us</div>
-         <a class="my-3 block" href="/#">XXX XXXX, Floor 4 San Francisco, CA <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">contact@company.com <span class="text-teal-600 text-xs p-1"></span></a> 
+         <a class="my-3 block" href="/#">XXX XXXX,XXX XXXX , XXX XXXX <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">hello@whoswhoghana.com <span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
    </div>
 </div>

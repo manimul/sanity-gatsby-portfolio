@@ -7,9 +7,9 @@ import styles from './project-preview-grid.module.css'
 function ProjectPreviewGrid (props) {
   return (
    
-    <div className={ styles.root}>
-      <hr className={"py-4 w-8 mx-auto border-t border-brand-accent"}></hr>
-      {props.title && <h2 className={"uppercase text-2xl py-4"}>{props.title}</h2>}
+    <div className={"my-20"}>
+      {props.title && <h2 className={"text-center  text-4xl font-bold py-4"}>{props.title}</h2>}
+      
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map(node => (

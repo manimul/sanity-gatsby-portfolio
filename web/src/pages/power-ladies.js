@@ -3,22 +3,53 @@ import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
+import CategoryPageBlock from '../components/category-page-block'
 import SEO from '../components/seo'
-import '../styles/global.css'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
-
 import {responsiveTitle1} from '../components/typography.module.css'
-const category_title = 'Power Ladies'
-const category_page_title = "Ghana's " + category_title
+
+
+const categorySubtitle = "Who's Who in Ghana Presents"
+
 
 export const query = graphql`
-  query PowerLadiesPage  {
+  query PowerLadiesPageQuery {
+    categories: sanityCategory(id: {eq: "31b9e8b6-670c-5424-8d4f-b50dc81c57b0"}) {
+    id
+    title
+    slug {
+      current
+    }
+    description
+    mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+              url
+            }
+            alt
+          }
+  }
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {title: {eq: "Power Ladies"}}}}
-      
+      filter: {categories: {elemMatch: {id: {eq: "31b9e8b6-670c-5424-8d4f-b50dc81c57b0"}}}}
     ) {
       edges {
         node {
@@ -55,7 +86,6 @@ export const query = graphql`
     }
   }
 `
-
 const PowerLadiesPage = props => {
   const {data, errors} = props
   if (errors) {
@@ -65,14 +95,24 @@ const PowerLadiesPage = props => {
       </Layout>
     )
   }
+
+
   const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    data && data.projects  && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
-      <SEO title= {category_page_title} />
+      <SEO title={data.categories.title} />
       <Container>
-        <h1 className={responsiveTitle1}>{category_page_title}</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+
+
+        {projectNodes && projectNodes.length > 0 && <CategoryPageBlock 
+       title={data.categories.title}
+        subtitle={categorySubtitle}
+        description={data.categories.description}
+        image={data.categories.mainImage.asset.url}
+        nodes={projectNodes} />}
+
+        
       </Container>
     </Layout>
   )

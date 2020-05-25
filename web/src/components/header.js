@@ -18,26 +18,31 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
         <Icon symbol='hamburger' />
       </button>
 
-      <nav className={cn("uppercase",styles.nav, showNav && styles.showNav )}>
-        <ul>
-          <li className="uppercase">
+      <nav className={cn("text-sm font-bold ",styles.nav, showNav && styles.showNav )}>
+        <ul >
+          <li className="px-3">
             <Link to='/most-influential/'>Most Influential</Link>
           </li>
-          <li>
+          <li className="px-3">
           <Link to='/entrepreneurs/'>Entrepreneurs</Link>
           </li>
-          <li>
+          <li className="px-3">
           <Link to='/spiritual-leaders/'>Spiritual Leaders</Link>
           </li>
-          <li>
+          <li className="px-3">
           <Link to='/corporate-gurus/'>Corporate</Link>
-          </li>
-          <li>
+          </li >
+          <li className="px-3">
           <Link to='/power-ladies/'>Power Ladies</Link>
           </li>
-          <li>
-          <Link to='#'>More</Link>
+          <li className="text-blue-accent px-3">
+         
+          <Link className="inline-flex"  to='#'><span className="text-xl" ><Icon  symbol='book'/></span><span className="pl-1">WWiG Book</span></Link>
           </li>
+          <li  className="text-brand-accent flex px-3">
+         <Link className="inline-flex"  to='#'><span className="text-xl" ><Icon  symbol='hamburger'/></span><span className="pl-1">More</span></Link>
+          </li>
+          
         
     
         </ul>

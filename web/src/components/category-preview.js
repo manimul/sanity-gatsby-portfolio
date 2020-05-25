@@ -8,38 +8,39 @@ import heroImg from '../img/hero-img.png'
 
 function CategoryPreview (props) {
   return (
+    
+    
+    
     <Link to={`/${props.slug.current}`}>
-        
-      <div className={"max-w-sm  rounded overflow-hidden shadow-2xl bg-brand"}>
-        
-        
-        <img className="w-full"
-            src={props.mainImage}
-        
-          />
-       
-      <div className={"px-4 py-4 "}>
-      
-      <h3 className={"font-bold text-sm mb-1 uppercase"}>{props.title}</h3>
-      {props._rawExcerpt && (
-        <div className={"text-xs mb-1 text-gray-500"}>
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-        
-      )}
-      <div className={"text-xs mb-1 text-gray-500"}>
-          
-        </div>
-      </div>
-      </div>
+     <div class=" shadow-2xl bg-brand">
+
+<div class="relative overflow-hidden h-auto">
+{props.mainImage && props.mainImage.asset && (
+   <img className="w-full"
+     src={imageUrlFor(buildImageObj(props.mainImage))
+       .url()}
+     alt={props.mainImage.alt}
+   />
+ )}
+   <div class="text-center absolute mb-32 bottom-0 w-full mx-auto">
+      <div class="mb-10">
+         <span class="bg-blue  max-w-sm text-gray-100 px-5 py-5 font-bold uppercase">{props.title}</span>
+         
+         </div>
+    
+      <button class="bg-brand-accent text-gray-100 px-5 py-3 font-semibold shadow-xl rounded">Explore</button>
+   </div>
+</div>
+</div>
       </Link>
   )
 }
 
 CategoryPreview.defaultProps = {
-    mainImage: heroImg,
+    
     _rawExcerpt: '',
-    title: ''
+    title: '',
+    mainImage: 'heroImg'
   }
 
 export default CategoryPreview

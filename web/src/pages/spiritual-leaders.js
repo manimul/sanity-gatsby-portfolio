@@ -3,19 +3,53 @@ import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
+import CategoryPageBlock from '../components/category-page-block'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
-
 import {responsiveTitle1} from '../components/typography.module.css'
 
+
+const categorySubtitle = "Who's Who in Ghana Presents"
+
+
 export const query = graphql`
-  query SpiritualLeadersPage {
+  query SpiritualLeadersPageQuery {
+    categories: sanityCategory(id: {eq: "d122ee30-9cc7-5309-854f-a7b84d43addd"}) {
+    id
+    title
+    slug {
+      current
+    }
+    description
+    mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+              url
+            }
+            alt
+          }
+  }
     projects: allSanitySampleProject(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {title: {eq: "Spritual Leaders"}}}}
-      
+      filter: {categories: {elemMatch: {id: {eq: "d122ee30-9cc7-5309-854f-a7b84d43addd"}}}}
     ) {
       edges {
         node {
@@ -52,7 +86,6 @@ export const query = graphql`
     }
   }
 `
-
 const SpiritualLeadersPage = props => {
   const {data, errors} = props
   if (errors) {
@@ -62,14 +95,24 @@ const SpiritualLeadersPage = props => {
       </Layout>
     )
   }
+
+
   const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    data && data.projects  && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
-      <SEO title='Ghanas Spiritual Leaders' />
+      <SEO title={data.categories.title} />
       <Container>
-        <h1 className={responsiveTitle1}>Ghana's Spiritual Leaders</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+
+
+        {projectNodes && projectNodes.length > 0 && <CategoryPageBlock 
+       title={data.categories.title}
+        subtitle={categorySubtitle}
+        description={data.categories.description}
+        image={data.categories.mainImage.asset.url}
+        nodes={projectNodes} />}
+
+        
       </Container>
     </Layout>
   )
