@@ -39,9 +39,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
          
           <Link className="inline-flex"  to='#'><span className="text-xl" ><Icon  symbol='book'/></span><span className="pl-1">WWiG Book</span></Link>
           </li>
-          <li  className="text-brand-accent flex px-3">
-         <Link className="inline-flex"  to='#'><span className="text-xl" ><Icon  symbol='hamburger'/></span><span className="pl-1">More</span></Link>
-          </li>
+         
           
         
     

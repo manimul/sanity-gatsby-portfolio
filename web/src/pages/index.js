@@ -16,6 +16,7 @@ import Cta from '../components/cta'
 import CtaSubscribe from '../components/cta-subscribe'
 import CategoryPreviewGrid from '../components/category-preview-grid'
 import Footer from '../components/footer'
+import Sidebar from '../components/sidebar'
 import {hero} from '../components/layout.module.css'
 import {responsiveTitle1} from '../components/typography.module.css'
 import heroImg from '../img/hero-img.png'
@@ -140,6 +141,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+     
       <Container> 
         <Hero title={site.title} subtitle={site.subtitle} image={heroImg} buttonText={'Show Me More'} />
         <section id="featured_partners">
