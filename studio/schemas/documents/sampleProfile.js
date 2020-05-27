@@ -2,9 +2,14 @@ import {format} from 'date-fns'
 
 export default {
   name: 'sampleProfile',
-  title: 'Sample profile',
+  title: 'Profile',
   type: 'document',
   fields: [
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string'
+    },
     {
       name: 'title',
       title: 'Title',
@@ -31,22 +36,7 @@ export default {
       title: 'Excerpt',
       type: 'simplePortableText'
     },
-    {
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{type: 'profileMember'}]
-    },
-    {
-      name: 'startedAt',
-      title: 'Started at',
-      type: 'datetime'
-    },
-    {
-      name: 'endedAt',
-      title: 'Ended at',
-      type: 'datetime'
-    },
+    
     {
       name: 'mainImage',
       title: 'Main image',

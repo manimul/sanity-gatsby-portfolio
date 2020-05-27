@@ -18,13 +18,9 @@ export default () =>
         )
         .icon(MdSettings),
       S.listItem()
-        .title('Sample profiles')
+        .title('Profiles')
         .schemaType('sampleProfile')
-        .child(S.documentTypeList('sampleProfile').title('Sample profiles')),
-      S.listItem()
-        .title('People')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
+        .child(S.documentTypeList('sampleProfile').title('Profiles')),
       S.listItem()
         .title('Categories')
         .schemaType('category')

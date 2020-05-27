@@ -17,6 +17,11 @@ async function createProfilePages (graphql, actions, reporter) {
             slug {
               current
             }
+            categories {
+              slug {
+                current
+              }
+            }
           }
         }
       }
@@ -32,6 +37,7 @@ async function createProfilePages (graphql, actions, reporter) {
     .forEach(edge => {
       const id = edge.node.id
       const slug = edge.node.slug.current
+      const cat = edge.node.categories
       const path = `/profile/${slug}/`
 
       reporter.info(`Creating profile page: ${path}`)
@@ -47,6 +53,8 @@ async function createProfilePages (graphql, actions, reporter) {
 exports.createPages = async ({graphql, actions, reporter}) => {
   await createProfilePages(graphql, actions, reporter)
 }
+
+
 
 
 

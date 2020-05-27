@@ -12,7 +12,7 @@ import styles from './profile.module.css'
 
 
 function Profile (props) {
-  const {_rawBody, title, categories, mainImage, members, publishedAt, relatedProfiles} = props
+  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfiles} = props
   return (
     <section id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
       <div className="flex-row w-full py-5">
@@ -20,7 +20,7 @@ function Profile (props) {
       {categories.map(category => (
                     <p  className="w-full text-xl font-semibold text-brand-accent" key={category._id}>{category.title}</p>
                   ))}
-      <h1 className="w-full text-5xl font-extrabold" >{title}</h1>
+      <h1 className="w-full text-5xl font-extrabold" >{name}</h1>
       <h2 className="w-full text-xl font-semibold" >{title}</h2>
       </div>
 
@@ -49,7 +49,7 @@ function Profile (props) {
 
           <aside className={styles.metaContent}>
       
-            {members && members.length > 0 && <RoleList items={members} title='Profile members' />}
+            
             {categories && categories.length > 0 && (
               <div>
               
@@ -70,9 +70,9 @@ function Profile (props) {
                   {relatedProfiles.map(profile => (
                     <li key={`related_${profile._id}`}>
                       {profile.slug ? (
-                        <Link to={`/profile/${profile.slug.current}`}>{profile.title}</Link>
+                        <Link to={`/profile/${profile.slug.current}`}>{profile.name}</Link>
                       ) : (
-                        <span>{profile.title}</span>
+                        <span>{profile.name}</span>
                       )}
                     </li>
                   ))}

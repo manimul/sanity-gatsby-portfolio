@@ -18,10 +18,13 @@ module.exports = {
       }
     },
   
-    
+    fontFamily: {
+      barlow: ["barlow", "sans-serif"]
+    },
     
  
-    extend: {},
+    extend: {
+    },
   },
   variants: {},
   plugins: [],

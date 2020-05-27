@@ -2,26 +2,15 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Profile from '../components/profile'
+import CategoryPageBlock from '../components/category-page-block'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query ProfileTemplateQuery($id: String!) {
-    sampleProfile: sanitySampleProfile(id: {eq: $id}) {
+  query CategoryTemplateQuery($id: String!) {
+    sampleCategory: sanityCategory(id: {eq: $id}) {
       id
-      publishedAt
-      categories {
-        _id
-        title
-      }
-      relatedProfiles {
-        title
-        _id
-        slug {
-          current
-        }
-      }
+     
       mainImage {
         crop {
           _key
@@ -45,32 +34,31 @@ export const query = graphql`
         alt
       }
       title
-      name
       slug {
         current
       }
-      _rawBody
+      
       
     }
   }
 `
 
-const ProfileTemplate = props => {
+const CategoryTemplate = props => {
   const {data, errors} = props
-  const profile = data && data.sampleProfile
+  const category = data && data.sampleCategory
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {profile && <SEO title={profile.name || 'Untitled'} />}
+      {category && <SEO title={category.title || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {profile && <Profile {...profile} />}
+      {category && <CategoryPageBlock {...category} />}
     </Layout>
   )
 }
 
-export default ProfileTemplate
+export default CategoryTemplate

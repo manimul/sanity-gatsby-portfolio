@@ -90,6 +90,7 @@ const InfluentialPage = props => {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
+        
       </Layout>
     )
   }
