@@ -29,6 +29,7 @@ function ProfilePreviewGrid (props) {
 
 ProfilePreviewGrid.defaultProps = {
   title: '',
+  name: '',
   nodes: [],
   browseMoreHref: ''
 }

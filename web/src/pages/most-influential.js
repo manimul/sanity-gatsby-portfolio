@@ -75,6 +75,7 @@ export const query = graphql`
             alt
           }
           title
+          name
           _rawExcerpt
           slug {
             current
@@ -104,12 +105,12 @@ const InfluentialPage = props => {
       <Container>
 
 
-        {profileNodes && profileNodes.length > 0 && <CategoryPageBlock 
+      <CategoryPageBlock 
        title={data.categories.title}
         subtitle={categorySubtitle}
         description={data.categories.description}
         image={data.categories.mainImage.asset.url}
-        nodes={profileNodes} />}
+        nodes={profileNodes} />
 
         
       </Container>

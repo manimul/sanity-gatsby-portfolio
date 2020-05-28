@@ -23,7 +23,7 @@ function ProfilePreview (props) {
         )}
       <div className={"px-4 py-4 "}>
       
-      <h3 className={"font-bold text-sm mb-1 uppercase"}>{props.title}</h3>
+      <h3 className={"font-bold text-sm mb-1 uppercase"}>{props.name}</h3>
       {props._rawExcerpt && (
         <div className={"text-xs mb-1 text-gray-500"}>
           <BlockText blocks={props._rawExcerpt} />

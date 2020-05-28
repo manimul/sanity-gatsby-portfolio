@@ -34,11 +34,15 @@ async function createProfilePages (graphql, actions, reporter) {
 
   profileEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
+    
+    
+
     .forEach(edge => {
       const id = edge.node.id
-      const slug = edge.node.slug.current
-      const cat = edge.node.categories
-      const path = `/profile/${slug}/`
+      
+      const slug = edge.node.categories[0].slug.current + `/` + edge.node.slug.current
+      
+      const path = `/${slug}/`
 
       reporter.info(`Creating profile page: ${path}`)
 
