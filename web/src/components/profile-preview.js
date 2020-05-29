@@ -15,8 +15,8 @@ function ProfilePreview (props) {
   return (
 
 
-    <Link className={styles.root} to={`/${slug}`}>
-      <div className={"max-w-sm   transition duration-100 ease-in-out  hover:-translate-y-1 transform hover:scale-105 rounded overflow-hidden shadow bg-brand"}>
+    <Link  to={`/${slug}`}>
+      <div className={"  transition duration-100 ease-in-out  hover:-translate-y-1 transform hover:scale-105 rounded overflow-hidden shadow bg-brand"}>
       <div className={"px-4 py-1 bg-brand-lighter text-center "}>
       
       <p className={"text-base font-bold tracking-wide "}>{props.categories[0].title}</p>
@@ -32,9 +32,9 @@ function ProfilePreview (props) {
         )}
       <div className={"px-4 py-4 text-center "}>
       
-      <h3 className={"text-base  font-serif tracking-wide "}>{props.name}</h3>
+      <h3 className={"text-sm md:text-base font-serif md:tracking-wide "}>{props.name}</h3>
     
-      <div className={"text-sm  opacity-50 uppercase font-semibold italic"}>{props.title} </div>
+      <div className={"hidden md:block text-sm  opacity-50 uppercase font-semibold italic"}>{props.title} </div>
       </div>
       </div>
     </Link>

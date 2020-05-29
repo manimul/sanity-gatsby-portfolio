@@ -25,14 +25,14 @@ function Profile (props) {
         <Link  to={category.slug.current} >
                     <p  className="w-full text-lg uppercase font-semibold text-brand-accent" key={category._id}>{category.title}</p>
                     </Link>    ))} 
-      <h1 className="w-full text-5xl font-serif " >{name}</h1>
+      <h1 className="w-full text-5xl font-serif" >{name}</h1>
       <h2 className="w-full text-lg uppercase opacity-50 font-light italic" >{title}</h2>
       </div>
 
 <div className="flex flex-col md:flex-row ">
 
       {props.mainImage && mainImage.asset && (
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-2/5">
           <img
             src={imageUrlFor(buildImageObj(mainImage))
               .width(1200)
@@ -44,11 +44,22 @@ function Profile (props) {
         </div>
       )}
       
-        <div className={"bg-white text-brand-dark w-full md:w-1/2 p-12"}>
+        <div className={"bg-white text-brand-dark w-full md:w-2/5 p-12"}>
           <div id="content" >
           {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
 
+          </div>
+          <div className={"text-brand-dark w-full ml-4 md:w-1/5 p-4 text-white"}>
+           <h2 className='font-bold  border-b-2'>Explore Related Profiles</h2>
+           <ul>
+        {props.nodes &&
+          props.nodes.map(node => (
+            <li key={node.id}>
+              <ProfilePreview {...node} />
+            </li>
+          ))}
+      </ul>
           </div>
           </div>
           </section>

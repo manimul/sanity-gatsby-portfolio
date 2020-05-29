@@ -10,23 +10,21 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
   <div className="">
 	  
     <div className="bg-brand fixed  w-full shadow z-50">
-   
 
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol='hamburger' />
-      </button>
-	 
-      <nav class="container flex items-center mx-auto justify-between flex-wrap  pb-3  w-full  top-0">
+      <nav class="container flex items-center mx-auto justify-between flex-wrap py-1 md:pb-3 px-5 md:px-0 w-full  top-0">
 		
 		<div class="flex items-center flex-shrink-0  mr-6">
-    <Link to='/'><img className='w-16 mt-4' src={siteLogo}/></Link>
+    <Link to='/'><img className='md:w-16 md:mt-4' src={siteLogo}/></Link>
 		</div>
 
-		<div class="block lg:hidden">
-			<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+		<div class="block order-last py-4 md:hidden">
+			<button id="nav-toggle" class="flex  px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
 				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 			</button>
 		</div>
+
+	
+
 		<div className='flex flex-col'>
 		<div className=' w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block text-xs pb-2 lg:pt-0'>
 			  <ul className='list-reset lg:flex justify-end flex-1 items-center uppercase '>
@@ -34,7 +32,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 </li>
 			  <li className='mr-5 opacity-75 hover:opacity-100 '><Link className="flex"  to='#'><span className="mt-1" ><Icon  symbol='twitter'/></span><span className="pl-1">Twitter</span></Link>
 </li>
-			  <li className='opacity-75 hover:opacity-100'><Link className="flex"  to='#'><span className='mt-1 ' ><Icon  symbol='instagram'/></span><span className="pl-1">Instragram</span></Link>
+			  <li className='opacity-75 hover:opacity-100'><Link className="flex"  to='#'><span className='mt-1 ' ><Icon  symbol='instagram'/></span><span className="pl-1">Instagram</span></Link>
 </li>
 				  </ul>
 		  </div>
@@ -61,6 +59,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
          </li>
 			</ul>
 		</div></div>
+	
 	</nav>
 
 

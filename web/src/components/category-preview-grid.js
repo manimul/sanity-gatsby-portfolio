@@ -8,9 +8,9 @@ import styles from './profile-preview-grid.module.css'
 function CategoryPreviewGrid (props) {
   return (
    
-    <div className="my-20" >
+    <div className="py-6 md:my-20" >
     
-      {props.title && <h2 className={"text-center font-serif text-5xl  py-4"}>{props.title}</h2>}
+      {props.title && <h2 className={"text-center font-serif text-2xl md:text-5xl  py-4"}>{props.title}</h2>}
       <ul className="grid grid-cols-2 gap-4 mb-8">
         {props.nodes &&
           props.nodes.map(node => (
@@ -20,7 +20,7 @@ function CategoryPreviewGrid (props) {
           ))}
       </ul>
       {props.browseMoreHref && (
-        <div className={"uppercase text-right text-brand-accent"}>
+        <div className={"uppercase  text-center md:text-right text-brand-accent"}>
           <Link to={props.browseMoreHref}>Explore All Categories</Link>
         </div>
       )}

@@ -153,12 +153,14 @@ const IndexPage = props => {
       <Container> 
         <Hero title={site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
         <section id="featured_partners ">
-          <div className="py-32 px-16 flex flex-col md:flex-row">
-          <div className="w-full md:w-1/5"><p className="text-center md:text-left text-2xl font-bold">As featured on:</p></div>
-          <div className="w-full md:w-1/5  "><img src="https://via.placeholder.com/150x100"/></div>
-          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
-          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
-          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="py-6 md:py-32 md:px-16 flex flex-col md:flex-row ">
+          <div className="md:w-1/5"><p className="text-center md:text-left text-2xl font-bold ">As featured on:</p></div>
+          <div className="md:w-4/5 flex flex-wrap flex-row">
+          <div className="w-1/2 mx-auto  p-3"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-1/2 mx-auto p-3"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-1/2 mx-auto p-3"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-1/2 mx-auto p-3"><img src="https://via.placeholder.com/150x100"/></div>
+          </div>
 
           </div>
         </section>

@@ -7,19 +7,19 @@ import styles from './profile-preview-grid.module.css'
 function ProfilePreviewGrid (props) {
   return (
    
-    <div className={"my-20"}>
-      {props.title && <h2 className={"text-center font-serif text-5xl  py-4"}>{props.title}</h2>}
+    <div className={"md:my-20"}>
+      {props.title && <h2 className={"text-center font-serif text-2xl md:text-5xl  py-4"}>{props.title}</h2>}
       
-      <ul className={styles.grid}>
+      <ul className='flex flex-wrap flex-row'>
         {props.nodes &&
           props.nodes.map(node => (
-            <li key={node.id}>
+            <li className='w-1/2 md:w-1/4 px-3' key={node.id}>
               <ProfilePreview {...node} />
             </li>
           ))}
       </ul>
       {props.browseMoreHref && (
-        <div className={"uppercase text-right text-brand-accent"}>
+        <div className={"my-6 uppercase text-center md:text-right text-brand-accent"}>
           <Link to={props.browseMoreHref}>Browse more</Link>
         </div>
       )}

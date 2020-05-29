@@ -6,7 +6,7 @@ import bookImg from '../img/book-cover.png'
 
 function Cta (props) {
     return (
-        <div class="my-32 text-base px-16 lg:justify-center">
+        <div class="my-16 md:my-32 text-base md:px-16 lg:justify-center">
         <div class="bg-cta py-8 bg-fixed md:mx-8 flex flex-col md:flex-row shadow rounded-lg">
             <div class="w-full md:w-1/2">
                 

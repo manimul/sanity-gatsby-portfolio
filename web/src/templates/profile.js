@@ -8,6 +8,52 @@ import Layout from '../containers/layout'
 
 export const query = graphql`
   query ProfileTemplateQuery($id: String!) {
+    profiles: allSanitySampleProfile(
+      limit: 6
+      sort: {fields: [publishedAt], order: DESC}
+      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+    ) {
+      edges {
+        node {
+          id
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
+          }
+          title
+          name
+          categories{
+            title
+            slug{
+              current
+            }
+          }
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
+
     sampleProfile: sanitySampleProfile(id: {eq: $id}) {
       id
       publishedAt
@@ -58,7 +104,8 @@ export const query = graphql`
 
 const ProfileTemplate = props => {
   const {data, errors} = props
-  const profile = data && data.sampleProfile
+  const profile = data && data.sampleProfile 
+  const relatedProfiles = data && data.profile
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -69,7 +116,7 @@ const ProfileTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {profile && <Profile {...profile} />}
+      {profile && <Profile {...profile } />}
     </Layout>
   )
 }
