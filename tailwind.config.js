@@ -5,9 +5,9 @@ module.exports = {
     colors:{
       brand: {
         accent: '#34A285',
-        default: '#01070A',
+        default: '#170f19',
         lighter: '#343749',
-        dark: '#0E0E11', 
+        dark: '#170f19', 
       },
       blue: {
         accent: '#ED9700',
@@ -19,13 +19,20 @@ module.exports = {
          default: '#ffffff'
       }
     },
+
+    boxShadow: {
+      default: '10px 25px 50px 5px rgba(0, 0, 0, 0.5)',
+
+    },
   
     fontFamily: {
-      barlow: ["barlow", "sans-serif"]
+      barlow: ["barlow", "sans-serif"],
+      luxia: ["luxia", "serif"],
+      serif: ["luxia", "serif"]
     },
     
- 
     extend: {
+    
     },
   },
   variants: {},

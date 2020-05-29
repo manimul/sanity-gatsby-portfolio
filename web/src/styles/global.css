@@ -4,6 +4,11 @@
 
 @tailwind utilities;
 
+@font-face {
+  font-family: "Luxia";
+  src: url("../fonts/luxia-display.otf");
+}
+
 .bg-gradient-brand {
   background: rgb(23,15,25);
   background: -moz-linear-gradient(61deg, rgba(23,15,25,1) 0%, rgba(1,7,10,1) 100%);

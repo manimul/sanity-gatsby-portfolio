@@ -12,6 +12,8 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+
+
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -20,6 +22,7 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
+      
     }
   ]
 }

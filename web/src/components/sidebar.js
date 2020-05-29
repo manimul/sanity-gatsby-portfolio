@@ -8,19 +8,19 @@ export default function sidebar() {
     <div>
         
       <Menu right >
-        <a id="home" className="menu-item" href="/">
+        <a id="home" className="outline-none menu-item" href="/">
           All Categories
         </a>
-        <a id="about" className="menu-item" href="#testid2">
+        <a id="about" className="outline-none menu-item" href="#testid2">
           Random Profile
         </a>
-        <a id="courses" className="menu-item" href="#testid3">
+        <a id="courses" className="outline-none menu-item" href="#testid3">
         Events
         </a>
-        <a id="android_app" className="menu-item" href="/">
+        <a id="android_app" className="outline-none menu-item" href="/">
           About Us
         </a>
-        <a id="about" className="menu-item" href="/">
+        <a id="about" className="outline-none menu-item" href="/">
           Partners
         </a>
         <fav />

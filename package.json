@@ -18,9 +18,13 @@
     "tailwindcss": "^1.4.6"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "autoprefixer": "^9.8.0",
     "browserslist": "^4.12.0",
     "caniuse-lite": "^1.0.30001066",
+    "gatsby-plugin-anchor-links": "^1.1.1",
     "gatsby-plugin-postcss": "^2.3.2",
     "typeface-barlow": "0.0.71"
   }

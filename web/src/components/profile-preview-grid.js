@@ -8,7 +8,7 @@ function ProfilePreviewGrid (props) {
   return (
    
     <div className={"my-20"}>
-      {props.title && <h2 className={"text-center  text-4xl font-bold py-4"}>{props.title}</h2>}
+      {props.title && <h2 className={"text-center font-serif text-5xl  py-4"}>{props.title}</h2>}
       
       <ul className={styles.grid}>
         {props.nodes &&

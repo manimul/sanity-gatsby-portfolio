@@ -12,11 +12,11 @@ function CategoryPreview (props) {
     
     
     <Link to={`/${props.slug.current}`}>
-     <div class=" shadow-2xl bg-brand">
+     <div class="transition duration-100 ease-in-out  hover:-translate-y-1 transform hover:translate-y-1 rounded overflow-hidden shadow bg-brand">
 
 <div class="relative overflow-hidden h-auto">
 {props.mainImage && props.mainImage.asset && (
-   <img className="w-full"
+   <img className="w-full opacity-75 hover:opacity-100"
      src={imageUrlFor(buildImageObj(props.mainImage))
        .url()}
      alt={props.mainImage.alt}
@@ -28,7 +28,7 @@ function CategoryPreview (props) {
          
          </div>
     
-      <button class="bg-brand-accent text-gray-100 px-5 py-3 font-semibold shadow-xl rounded">Explore</button>
+      <button class="transition duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent  text-white font-bold rounded-sm  shadow inline-block px-5 py-3   px-5 py-3   rounded">Explore</button>
    </div>
 </div>
 </div>

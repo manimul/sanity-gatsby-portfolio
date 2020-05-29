@@ -16,12 +16,19 @@ export default {
       type: 'string'
     },
     {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'category'}}]
+    },
+  
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       description: 'Some frontend will require a slug to be set to be able to show the profile',
       options: {
-        source: 'title',
+        source: 'name',
         maxLength: 96
       }
     },
@@ -30,6 +37,11 @@ export default {
       title: 'Published at',
       description: 'You can use this field to schedule profiles where you show them',
       type: 'datetime'
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'profilePortableText'
     },
     {
       name: 'excerpt',
@@ -42,17 +54,7 @@ export default {
       title: 'Main image',
       type: 'figure'
     },
-    {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'profilePortableText'
-    },
+ 
     {
       name: 'relatedProfiles',
       title: 'Related profiles',
@@ -62,7 +64,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'name',
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
@@ -71,6 +73,7 @@ export default {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
+        name,
         title,
         media,
         subtitle: publishedAt ? path : 'Missing publishing date'

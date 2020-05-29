@@ -52,6 +52,12 @@ export const query = graphql`
       edges {
         node {
           id
+          categories{
+            title
+            slug{
+              current
+            }
+          }
           mainImage {
             crop {
               _key

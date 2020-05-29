@@ -23,6 +23,7 @@ import heroImg from '../img/hero-img.png'
 
 
 
+
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -102,6 +103,12 @@ export const query = graphql`
           }
           title
           name
+          categories{
+            title
+            slug{
+              current
+            }
+          }
           _rawExcerpt
           slug {
             current
@@ -144,8 +151,16 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
      
       <Container> 
-        <Hero title={site.title} subtitle={site.subtitle} image={heroImg} buttonText={'Show Me More'} />
-        <section id="featured_partners">
+        <Hero title={site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
+        <section id="featured_partners ">
+          <div className="py-32 px-16 flex flex-col md:flex-row">
+          <div className="w-full md:w-1/5"><p className="text-center md:text-left text-2xl font-bold">As featured on:</p></div>
+          <div className="w-full md:w-1/5  "><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
+          <div className="w-full md:w-1/5"><img src="https://via.placeholder.com/150x100"/></div>
+
+          </div>
         </section>
 
         <section id="featured_categories">

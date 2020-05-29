@@ -116,10 +116,7 @@ const CategoriesPage = props => {
         <section id="book_promo">
           <Cta></Cta>
         </section>
-        
-        <section id="subscribe_promo">    
-          <Cta></Cta>
-        </section>
+      
 
       </Container>
 

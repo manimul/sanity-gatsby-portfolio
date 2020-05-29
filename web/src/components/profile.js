@@ -6,22 +6,27 @@ import {imageUrlFor} from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
+import Cta from './cta'
 
 import styles from './profile.module.css'
+
+
 
 
 
 function Profile (props) {
   const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfiles} = props
   return (
-    <section id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2 px-8"}>
+    <div id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}>
+      <section id="profile-bio">
       <div className="flex-row w-full py-5">
       
       {categories.map(category => (
-                    <p  className="w-full text-xl font-semibold text-brand-accent" key={category._id}>{category.title}</p>
-                  ))}
-      <h1 className="w-full text-5xl font-extrabold" >{name}</h1>
-      <h2 className="w-full text-xl font-semibold" >{title}</h2>
+        <Link  to={category.slug.current} >
+                    <p  className="w-full text-lg uppercase font-semibold text-brand-accent" key={category._id}>{category.title}</p>
+                    </Link>    ))} 
+      <h1 className="w-full text-5xl font-serif " >{name}</h1>
+      <h2 className="w-full text-lg uppercase opacity-50 font-light italic" >{title}</h2>
       </div>
 
 <div className="flex flex-col md:flex-row ">
@@ -46,8 +51,9 @@ function Profile (props) {
 
           </div>
           </div>
+          </section>
 
-          <aside className={styles.metaContent}>
+          {/* <aside className={styles.metaContent}>
       
             
             {categories && categories.length > 0 && (
@@ -70,7 +76,7 @@ function Profile (props) {
                   {relatedProfiles.map(profile => (
                     <li key={`related_${profile._id}`}>
                       {profile.slug ? (
-                        <Link to={`/profile/${profile.slug.current}`}>{profile.name}</Link>
+                        <Link to={`/${profile.slug.current}`}>{profile.name}</Link>
                       ) : (
                         <span>{profile.name}</span>
                       )}
@@ -79,10 +85,19 @@ function Profile (props) {
                 </ul>
               </div>
             )}
-          </aside>
-        
+          </aside>*/
+       }
+
+
+
+
+     
+         <section id="book_promo">
+     <Cta></Cta>
+   </section>
       
-    </section>
+    </div>
+    
   )
 }
 

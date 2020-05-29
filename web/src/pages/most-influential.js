@@ -76,6 +76,12 @@ export const query = graphql`
           }
           title
           name
+          categories{
+            title
+            slug{
+              current
+            }
+          }
           _rawExcerpt
           slug {
             current

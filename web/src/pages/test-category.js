@@ -80,6 +80,10 @@ export const query2 = graphql`
           slug {
             current
           }
+          categories{
+            slug{current}
+            title
+          }
         }
       }
     }

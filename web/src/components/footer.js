@@ -4,35 +4,35 @@ import React from 'react'
 
 const Footer = ({ siteTitle, siteDescription, siteLogo}) => (  
 
-<footer>
+<footer className="">
 
 
-<div class="bg-brand">
-   <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-center pt-12">
+<div class="bg-brand ">
+   <div class="container mx-auto  pt-12 flex flex-col md:flex-row w-full  text-center  md:text-left  justify-center">
      
-      <div class="p-5 w-1/4 ">
-      <Link to='/'><img src={siteLogo}/></Link>
+      <div class=" w-full md:w-1/4 ">
+      <Link to='/'><img className="text-center mx-auto md:mx-0" src={siteLogo}/></Link>
          <p class="mt-4">{siteDescription}</p> 
       </div>
-      <div class="p-5 w-1/4 ">
-         <div class="text-xs uppercase text-gray-500 font-medium">Product</div>
-         <a class="my-3 block" href="/#">Home<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Categories </a><a class="my-3 block" href="/#">The Book<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Events<span class="text-teal-600 text-xs p-1"></span></a> 
+      <div class=" w-full md:w-1/4 ">
+         <div class="text-xs uppercase  font-medium">Product</div>
+         <a class="my-3 block" href="/#">Home<span class="text-xs p-1"></span></a><a class="my-3 block" href="/#">Categories </a><a class="my-3 block" href="/#">The Book<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Events<span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
-      <div class="p-5 w-1/4 ">
-         <div class="text-xs uppercase text-gray-500 font-medium">Support</div>
-         <a class="my-3 block" href="/#">Help Center <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Privacy Policy <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Conditions <span class="text-teal-600 text-xs p-1"></span></a> 
+      <div class=" w-full  md:w-1/4 ">
+         <div class="text-xs uppercase  font-medium">Support</div>
+         <a class="my-3 block" href="/#">Help Center <span class=" text-xs p-1"></span></a><a class="my-3 block" href="/#">Privacy Policy <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Conditions <span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
-      <div class="p-5 w-1/4 ">
-         <div class="text-xs uppercase text-gray-500 font-medium">Contact us</div>
-         <a class="my-3 block" href="/#">XXX XXXX,XXX XXXX , XXX XXXX <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">hello@whoswhoghana.com <span class="text-teal-600 text-xs p-1"></span></a> 
+      <div class=" w-full  md:w-1/4 ">
+         <div class="text-xs uppercase  font-medium">Contact us</div>
+         <a class="my-3 block" href="/#">XXX XXXX,XXX XXXX , XXX XXXX <span class=" text-xs p-1"></span></a><a class="my-3 block" href="/#">hello@whoswhoghana.com <span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
    </div>
 </div>
 
 <div class="bg-brand pt-2 ">
-   <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-500 border-brand-dark text-sm flex-col
-      md:flex-row max-w-6xl">
-      <div class="mt-2 text-gray-500"> © {new Date().getFullYear()}, WWiG - Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
+   <div class="flex pb-5 px-3 m-auto pt-5 text-center border-t border-brand-dark text-sm flex-col
+      md:flex-row container">
+      <div class="mt-2"> © {new Date().getFullYear()}, WWiG - Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
           {` `}
           <a href='https://www.gatsbyjs.org'>Gatsby</a></div>
      
