@@ -11,7 +11,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 	  
     <div className="bg-brand fixed  w-full shadow z-50">
 
-      <nav class="container flex items-center mx-auto justify-between flex-wrap py-1 md:pb-3 px-5 md:px-0 w-full  top-0">
+      <nav class="container flex items-center mx-auto justify-between flex-wrap py-1  md:pb-3 px-5 md:px-0 w-full  top-0">
 		
 		<div class="flex items-center flex-shrink-0  mr-6">
     <Link to='/'><img className='md:w-16 md:mt-4' src={siteLogo}/></Link>
@@ -26,7 +26,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 	
 
 		<div className='flex flex-col'>
-		<div className=' w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block text-xs pb-2 lg:pt-0'>
+		<div className='-mt-2 w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block text-xs pb-2 lg:pt-0'>
 			  <ul className='list-reset lg:flex justify-end flex-1 items-center uppercase '>
 			  <li className='mr-5 opacity-75 hover:opacity-100 '><Link className="flex"  to='#'><span className="mt-1 " ><Icon  symbol='facebook'/></span><span className="pl-1">Facebook</span></Link>
 </li>
@@ -36,9 +36,9 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 </li>
 				  </ul>
 		  </div>
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 pb-1 lg:pt-0" id="nav-content">
 			<ul class=" transform transition ease-in-out duration-150 list-reset lg:flex justify-end flex-1 items-center tracking-wide font-bold">
-				<li class="  mr-5 mt-0 opacity-75 hover:opacity-100">
+				<li class="  mr-5 mt-1 opacity-75 hover:opacity-100">
         <Link to='/most-influential/'>Most Influential</Link>
 				</li>
 				<li class="mr-5 mt-0 opacity-75 hover:opacity-100">
