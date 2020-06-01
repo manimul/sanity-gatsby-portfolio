@@ -55,7 +55,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 				</li>
         <li className="text-blue-accent mt-0">
          
-         <Link className="flex"  to='#'><span className="text-lg mt-1" ><Icon  symbol='book'/></span><span className="pl-1">WWiG Book</span></Link>
+         <Link className="flex"  to='/book'><span className="text-lg mt-1" ><Icon  symbol='book'/></span><span className="pl-1">WWiG Book</span></Link>
          </li>
 			</ul>
 		</div></div>

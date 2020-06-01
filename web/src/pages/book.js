@@ -11,12 +11,8 @@ import ProfilePreviewGrid from '../components/profile-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import Hero from '../components/hero'
-import '../styles/global.css'
 import Cta from '../components/cta'
-import CtaSubscribe from '../components/cta-subscribe'
 import CategoryPreviewGrid from '../components/category-preview-grid'
-import Footer from '../components/footer'
-import Sidebar from '../components/sidebar'
 import {hero} from '../components/layout.module.css'
 import {responsiveTitle1} from '../components/typography.module.css'
 import heroImg from '../img/hero-img.png'
@@ -24,9 +20,8 @@ import FeaturedRow from '../components/featured-row'
 
 
 
-
 export const query = graphql`
-  query IndexPageQuery {
+  query BookPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       subtitle
@@ -34,44 +29,6 @@ export const query = graphql`
       keywords
       figure {asset {url}}
     }
-    
-    categories: allSanityCategory(
-      limit:2
-    )
-     {
-    edges {
-      node {
-        id
-        title
-        description
-        slug {
-            current
-          }
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-      }
-    }
-  }
     profiles: allSanitySampleProfile(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
@@ -103,16 +60,13 @@ export const query = graphql`
             alt
           }
           title
-          name
-          categories{
-            title
-            slug{
-              current
-            }
-          }
           _rawExcerpt
           slug {
             current
+          }
+          categories{
+            slug{current}
+            title
           }
         }
       }
@@ -120,7 +74,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+const BookPage = props => {
   const {data, errors} = props
 
   if (errors) {
@@ -137,9 +91,6 @@ const IndexPage = props => {
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
-    const categoryNodes = (data || {}).categories
-    ? mapEdgesToNodes(data.categories)
-    : []
 
   if (!site) {
     throw new Error(
@@ -150,46 +101,16 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-     
       <Container> 
-        <Hero title={site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
+      <Hero title={"The Official Guide to Ghana's Greatest"} subtitle={site.title} image={heroImg} buttonText={'Buy the Book'} reverse={true} />
         
-        <FeaturedRow></FeaturedRow>
-        
+<FeaturedRow></FeaturedRow>
 
-        <section id="featured_categories">
-          {categoryNodes && (
-          <CategoryPreviewGrid
-          title={"Category Spotlight"}
-                      nodes={categoryNodes}
-                      browseMoreHref='/categories/'
 
-          />)}
-        </section>
 
-        <section id="book_promo">
-          <Cta></Cta>
-        </section>
-
-        <section id="featured_profiles">
-          {profileNodes && (
-            <ProfilePreviewGrid
-              title='Most Popular'
-              nodes={profileNodes}
-              browseMoreHref='/category/'
-            />
-          )}
-        </section>
-        
-        <section id="subscribe_promo">    
-          <CtaSubscribe></CtaSubscribe>
-        </section>
-
-      </Container>
-
-    </Layout>
-
+</Container>
+</Layout>
   )
 }
 
-export default IndexPage
+export default BookPage

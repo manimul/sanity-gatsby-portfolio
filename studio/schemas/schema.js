@@ -18,6 +18,8 @@ import profileMember from './objects/profileMember'
 import profilePortableText from './objects/profilePortableText'
 import simplePortableText from './objects/simplePortableText'
 import youtube from './objects/youtube'
+import hero from './objects/hero'
+import cta from './objects/cta'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,6 +31,8 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     bioPortableText,
+    cta,
+    hero,
     figure,
     profileMember,
     profilePortableText,
