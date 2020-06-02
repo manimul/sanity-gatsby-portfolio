@@ -22,6 +22,7 @@ import youtube from './objects/youtube'
 import hero from './objects/hero'
 import cta from './objects/cta'
 import testimonialSlider from './objects/testimonialSlider'
+import testimonial from './objects/testimonial'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -41,6 +42,7 @@ export default createSchema({
     simplePortableText,
     youtube,
     testimonialSlider,
+    testimonial,
     // The following are document types which will appear
     // in the studio.
     category,
