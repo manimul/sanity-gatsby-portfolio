@@ -18,7 +18,7 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'profilePortableText'
+      type: 'text'
     },
     {
       name: 'buttonText',

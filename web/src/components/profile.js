@@ -2,20 +2,30 @@ import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
 import {Link} from 'gatsby'
 import {buildImageObj} from '../lib/helpers'
+import {
+  mapEdgesToNodes,
+  filterOutDocsWithoutSlugs,
+  filterOutDocsPublishedInTheFuture
+} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
 import Cta from './cta'
+import ProfilePreviewGrid from '../components/profile-preview-grid'
 
 import styles from './profile.module.css'
 
 
+function Profile (props, relatedProfiles) {
+ 
+  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfilesList} = props
+  const profileNodes = relatedProfilesList
+  ? mapEdgesToNodes(relatedProfilesList)
+    .filter(filterOutDocsWithoutSlugs)
+    .filter(filterOutDocsPublishedInTheFuture)
+  : []
 
-
-
-function Profile (props) {
-  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfiles} = props
   return (
     <div id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}>
       <section id="profile-bio">
@@ -25,8 +35,11 @@ function Profile (props) {
         <Link  to={category.slug.current} >
                     <p  className="w-full text-lg uppercase font-semibold text-brand-accent" key={category._id}>{category.title}</p>
                     </Link>    ))} 
+
+
       <h1 className="w-full text-5xl font-serif" >{name}</h1>
       <h2 className="w-full text-lg uppercase opacity-50 font-light italic" >{title}</h2>
+
       </div>
 
 <div className="flex flex-col md:flex-row ">
@@ -53,13 +66,34 @@ function Profile (props) {
           <div className={"text-brand-dark w-full ml-4 md:w-1/5 p-4 text-white"}>
            <h2 className='font-bold  border-b-2'>Explore Related Profiles</h2>
            <ul>
-        {props.nodes &&
-          props.nodes.map(node => (
-            <li key={node.id}>
-              <ProfilePreview {...node} />
-            </li>
-          ))}
+       
       </ul>
+   {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
+              <div>
+              
+                <ul>
+                  {relatedProfilesList.edges.map(relatedProfile => (
+                    <li key={relatedProfile.node._id}>{relatedProfile.node.name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+*/
+}
+            
+
+<section id="featured_profiles">
+          {profileNodes && (
+            <ProfilePreviewGrid
+              title='Newest Profiles'
+              nodes={profileNodes}
+              browseMoreHref='/category/'
+              showAmount= '3'
+              stack = 'true'
+            />
+          )}
+        </section>
+          
           </div>
           </div>
           </section>

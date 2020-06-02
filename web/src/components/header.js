@@ -38,7 +38,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) => (
 		  </div>
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 pb-1 lg:pt-0" id="nav-content">
 			<ul class=" transform transition ease-in-out duration-150 list-reset lg:flex justify-end flex-1 items-center tracking-wide font-bold">
-				<li class="  mr-5 mt-1 opacity-75 hover:opacity-100">
+				<li class="  mr-5 mt-0 opacity-75 hover:opacity-100">
         <Link to='/most-influential/'>Most Influential</Link>
 				</li>
 				<li class="mr-5 mt-0 opacity-75 hover:opacity-100">

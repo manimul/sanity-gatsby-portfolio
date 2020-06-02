@@ -32,6 +32,14 @@ export default {
             type: 'boolean'
             
         },
+
+        {
+            title: 'Call to action',
+            name: 'cta',
+            type: 'reference',
+            to: {type: 'ctas'}
+          },
+
             {
                 name: 'pageModules',
                 title: 'Page Modules',
@@ -41,6 +49,9 @@ export default {
                 of: [
                     {
                         type: 'hero'
+                    },
+                    {
+                        type: 'testimonialSlider'
                     },
                     {
                         type: 'cta'

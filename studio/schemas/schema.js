@@ -10,6 +10,7 @@ import person from './documents/person'
 import sampleProfile from './documents/sampleProfile'
 import siteSettings from './documents/siteSettings'
 import page from './documents/page'
+import ctas from './documents/ctas'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -20,6 +21,7 @@ import simplePortableText from './objects/simplePortableText'
 import youtube from './objects/youtube'
 import hero from './objects/hero'
 import cta from './objects/cta'
+import testimonialSlider from './objects/testimonialSlider'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -38,12 +40,14 @@ export default createSchema({
     profilePortableText,
     simplePortableText,
     youtube,
+    testimonialSlider,
     // The following are document types which will appear
     // in the studio.
     category,
     person,
     sampleProfile,
     siteSettings,
-    page
+    page,
+    ctas
   ])
 })

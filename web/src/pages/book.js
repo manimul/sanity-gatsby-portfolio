@@ -22,6 +22,8 @@ import FeaturedRow from '../components/featured-row'
 
 export const query = graphql`
   query BookPageQuery {
+
+
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
       title
       subtitle
@@ -29,6 +31,49 @@ export const query = graphql`
       keywords
       figure {asset {url}}
     }
+
+
+        page: sanityPage(id: {eq: "a35e27f9-f0d9-51de-8c18-6365f7a7663e"}) {
+        title
+        pageModules {
+       
+      ... on SanityCta {
+        _key
+        _type
+        title
+        subtitle
+        image {
+          asset {
+            url
+            path
+          }
+          alt
+        }
+        buttonText
+        flow
+        buttonLink
+      
+      }
+      ... on SanityHero {
+        _key
+        buttonLink
+        buttonText
+        flow
+        subtitle
+        
+        title
+        image {
+          asset {
+            url
+            path
+          }
+          caption
+          alt
+        }
+       
+      }
+    }
+  }
     profiles: allSanitySampleProfile(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
@@ -86,6 +131,9 @@ const BookPage = props => {
   }
 
   const site = (data || {}).site
+  const page = (data || {}).page
+  const pageModules = page.pageModules.includes("SanityHero")
+  
   const profileNodes = (data || {}).profiles
     ? mapEdgesToNodes(data.profiles)
       .filter(filterOutDocsWithoutSlugs)
@@ -99,11 +147,28 @@ const BookPage = props => {
   }
 
   return (
+    
+ 
+
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container> 
-      <Hero title={"The Official Guide to Ghana's Greatest"} subtitle={site.title} image={heroImg} buttonText={'Buy the Book'} reverse={true} />
+
+    
+        <Hero title={page.pageModules[0].title}  image={page.pageModules[0].image.asset.url}  buttonText={'Buy the Book'} reverse={true} />
+    
+<section id = "image-gallery" className='w-1/2'>
+<h2 className='w-full'>Look Inside</h2>
+    <div className='flex  flex-col md:flex-row'>
+     
+      <div className='w-full md:w-1/4'><img src="https://via.placeholder.com/150x100"/></div>
+      <div className='w-full md:w-1/4'><img src="https://via.placeholder.com/150x100"/></div>
+      <div className='w-full md:w-1/4'><img src="https://via.placeholder.com/150x100"/></div>
+      <div className='w-full md:w-1/4'><img src="https://via.placeholder.com/150x100"/></div>
+    </div>
+</section>
         
+
 <FeaturedRow></FeaturedRow>
 
 

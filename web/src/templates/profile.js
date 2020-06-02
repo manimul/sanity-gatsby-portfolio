@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query ProfileTemplateQuery($id: String!) {
+  query ProfileTemplateQuery($id: String!, $cat: String!) {
     profiles: allSanitySampleProfile(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
@@ -53,6 +53,54 @@ export const query = graphql`
         }
       }
     }
+
+    
+    related: allSanitySampleProfile(
+      limit: 6
+      sort: {fields: [publishedAt], order: DESC}
+      filter: {categories: {elemMatch: {slug: {current: {eq: $cat}}}}, id: {ne: $id}}
+    ) {
+      edges {
+        node {
+          id
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
+          }
+          title
+          name
+          categories{
+            title
+            slug{
+              current
+            }
+          }
+          _rawExcerpt
+          slug {
+            current
+          }
+        }
+      }
+    }
+
 
     sampleProfile: sanitySampleProfile(id: {eq: $id}) {
       id
@@ -105,7 +153,7 @@ export const query = graphql`
 const ProfileTemplate = props => {
   const {data, errors} = props
   const profile = data && data.sampleProfile 
-  const relatedProfiles = data && data.profile
+  const relatedProfiles = data && data.related
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -116,7 +164,10 @@ const ProfileTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {profile && <Profile {...profile } />}
+      {profile && <Profile 
+      {...profile} 
+      relatedProfilesList = {relatedProfiles} />}
+      
     </Layout>
   )
 }

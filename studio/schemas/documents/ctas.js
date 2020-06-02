@@ -1,11 +1,24 @@
 export default {
-    name: 'cta',
-    type: 'object',
-    title: 'Call to Action',
+    name: 'ctas',
+    type: 'document',
+    title: 'Call to Actions',
    
     
     fields: [
-    
+        {
+            title: 'Type',
+            name: 'type',
+            type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'radio',
+        list: [
+          {title: 'Book Promo', value: 'book-promo'},
+          {title: 'Profile Promo', value: 'profile-promo'},
+          {title: 'Event Promo', value: 'event-promo'}
+        ]
+      }
+          },
       {
         name: 'title',
         title: 'Title',
@@ -29,7 +42,7 @@ export default {
       {
           name: 'buttonLink',
           title: 'Button link',
-          type: 'url'
+          type: 'string'
         },
       {
         name: 'image',

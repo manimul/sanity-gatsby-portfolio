@@ -73,7 +73,7 @@ export const query = graphql`
     }
   }
     profiles: allSanitySampleProfile(
-      limit: 6
+      
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
@@ -174,9 +174,10 @@ const IndexPage = props => {
         <section id="featured_profiles">
           {profileNodes && (
             <ProfilePreviewGrid
-              title='Most Popular'
+              title='Newest Profiles'
               nodes={profileNodes}
               browseMoreHref='/category/'
+              showAmount= '3'
             />
           )}
         </section>
