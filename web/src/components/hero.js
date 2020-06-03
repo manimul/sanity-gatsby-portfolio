@@ -1,5 +1,7 @@
 import {Link} from 'gatsby'
 import React from 'react'
+import scrollTo from 'gatsby-plugin-smoothscroll';
+
 
 
 
@@ -15,7 +17,7 @@ function Hero (props) {
      <p className="uppercase  text-center md:text-left tracking-loose w-full">{props.subtitle}</p>
      <h1 className="my-4  w-full text-center md:text-left text-3xl md:text-6xl font-serif leading-none">{props.title}</h1>
      <p className="leading-normal md:w-3/4 md:text-left md:text-2xl md:mb-8">{props.description}</p>
-     <a className="mx-auto md:ml-0" href="#"><button className="transition duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent hover:opacity-75 text-white font-bold rounded-sm my-6 py-4 px-8 shadow">{props.buttonText}</button></a>
+     <button onClick={() => scrollTo("#content_intro")} className="mx-auto md:ml-0 duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent hover:opacity-75 text-white font-bold rounded-sm my-6 py-4 px-8 shadow">{props.buttonText}</button>
    
  </div>
 

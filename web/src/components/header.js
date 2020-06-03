@@ -2,6 +2,8 @@ import {Link} from 'gatsby'
 import React, {useState} from 'react'
 import Icon from './icon'
 import {cn} from '../lib/helpers'
+import Sidebar from './sidebar'
+
 
 
 import styles from './header.module.css'
@@ -12,11 +14,12 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
 	return (
 
   <div className="">
-	  
+
     <div className="bg-brand fixed  w-full shadow z-50">
+	<div className='invisible md:visible'><Sidebar/></div>
 
       <nav class="container flex items-center mx-auto justify-between flex-wrap py-1  md:pb-3 px-5 md:px-0 w-full  top-0">
-		
+
 		<div class="flex items-center flex-shrink-0  mr-6">
     <Link to='/'><img className='md:w-16 md:mt-4' src={siteLogo}/></Link>
 		</div>

@@ -24,12 +24,14 @@ function CategoryPageBlock (props) {
             
 
             />
+            <div id="content_intro" className="pt-12">
 
             {props.nodes && props.nodes.length > 0 
             ? <ProfilePreviewGrid {...props} nodes={props.nodes}  /> 
             : <p className="my-32 text-center text-2xl">No profiles added yet</p>
         }
         <Cta></Cta>
+        </div>
         </div>
         )
 

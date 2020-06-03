@@ -153,11 +153,11 @@ const IndexPage = props => {
      
       <Container> 
         <Hero title={site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
-        
+       <div id ="content_intro">
         <FeaturedRow></FeaturedRow>
         
 
-        <section id="featured_categories">
+        <section id="featured_categories" className="intro'">
           {categoryNodes && (
           <CategoryPreviewGrid
           title={"Category Spotlight"}
@@ -185,6 +185,7 @@ const IndexPage = props => {
         <section id="subscribe_promo">    
           <CtaSubscribe></CtaSubscribe>
         </section>
+        </div>
 
       </Container>
 

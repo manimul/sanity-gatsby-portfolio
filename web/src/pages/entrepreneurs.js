@@ -44,6 +44,27 @@ export const query = graphql`
             alt
           }
   }
+
+  ctaList: allSanityCtas 
+    {
+    edges {
+      node {
+        _id
+        title
+        subtitle
+        buttonLink
+        buttonText
+        body
+        type
+        image {
+          asset {
+            url
+          }
+        }
+      }
+    }
+  }
+
     profiles: allSanitySampleProfile(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
@@ -102,8 +123,7 @@ const EntrepreneursPage = props => {
   }
 
 
-  const profileNodes =
-    data && data.profiles  && mapEdgesToNodes(data.profiles).filter(filterOutDocsWithoutSlugs)
+  const profileNodes = data && data.profiles  && mapEdgesToNodes(data.profiles).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title={data.categories.title} />
