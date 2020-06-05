@@ -21,7 +21,7 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
       <nav class="container flex items-center mx-auto justify-between flex-wrap py-1  md:pb-3 px-5 md:px-0 w-full  top-0">
 
 		<div class="flex items-center flex-shrink-0  mr-6">
-    <Link to='/'><img className='md:w-16 md:mt-4' src={siteLogo}/></Link>
+    <Link to='/'><img className='w-32 md:w-64 md:mt-4' src={siteLogo}/></Link>
 		</div>
 
 		<div class="block order-last py-4 md:hidden">

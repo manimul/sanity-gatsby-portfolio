@@ -38,7 +38,7 @@ function Profile (props, relatedProfiles) {
 
 
       <h1 className="w-full text-5xl font-serif" >{name}</h1>
-      <h2 className="w-full text-lg uppercase opacity-50 font-light italic" >{title}</h2>
+      <h2 className="w-full  text-lg uppercase opacity-50 font-light italic" >{title}</h2>
 
       </div>
 
@@ -137,9 +137,7 @@ function Profile (props, relatedProfiles) {
 
 
      
-         <section id="book_promo">
-     <Cta></Cta>
-   </section>
+       
       
     </div>
     

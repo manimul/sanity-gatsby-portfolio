@@ -36,7 +36,7 @@ export const query = graphql`
     }
     
     categories: allSanityCategory(
-      limit:2
+      limit:4
     )
      {
     edges {

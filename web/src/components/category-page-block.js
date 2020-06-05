@@ -21,6 +21,7 @@ function CategoryPageBlock (props) {
             subtitle={props.subtitle}
             description={props.description}
             image={props.image}
+            prefix={"Ghana's"}
             
 
             />

@@ -12,7 +12,7 @@ function CategoryPreview (props) {
     
     
     <Link to={`/${props.slug.current}`}>
-     <div class="transition duration-100 ease-in-out  hover:-translate-y-1 transform hover:translate-y-1 rounded overflow-hidden shadow bg-brand">
+     <div class="transition duration-100 ease-in-out  group hover:-translate-y-1 transform hover:translate-y-1 rounded overflow-hidden shadow bg-brand">
 
 <div class="relative overflow-hidden h-auto">
 {props.mainImage && props.mainImage.asset && (
@@ -22,13 +22,13 @@ function CategoryPreview (props) {
      alt={props.mainImage.alt}
    />
  )}
-   <div class="text-center absolute mb-32 bottom-0 w-full mx-auto">
-      <div class="mb-10">
-         <span class="bg-blue  max-w-sm text-gray-100 px-5 py-5 font-bold uppercase">{props.title}</span>
-         
+   <div class="text-center absolute opacity-75 group-hover:opacity-100  bottom-0  w-full mx-auto">
+      <div class="bg-brand mx-auto align-middle	w-full  p-8  group-hover:opacity-100 flex flex-col text-center  ">
+         <span class="text-center  text-gray-100 font-luxia font-bold uppercase">{props.title}</span>
+         <a href="" class="transition  text-blue-accent duration-100 ease-in-out transform   group-hover:-translate-y-1  group-hover:scale-105  ">Explore</a>
+
          </div>
     
-      <button class="transition duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent  text-white font-bold rounded-sm  shadow inline-block px-5 py-3   px-5 py-3   rounded">Explore</button>
    </div>
 </div>
 </div>
