@@ -47,7 +47,7 @@ export default  ()=> (
         </div>
         <div className="pb-6 px-6 md:py-12 md:pr-24 text-center md:text-left w-full md:w-1/2">
             
-  <h2 className="leading-snug text-xl md:text-4xl font-bold ">{data.ctas.edges[0].node.title}</h2>
+  <h2 className="leading-snug text-xl md:text-4xl font-luxia ">{data.ctas.edges[0].node.title}</h2>
             <p className="my-4 md:mb-8   block">{data.ctas.edges[0].node.body}</p>
             <a href={data.ctas.edges[0].node.buttonLink} className="transition duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent hover:opacity-75 text-white font-bold rounded-sm  shadow inline-block px-5 py-3 font-semibold ">{data.ctas.edges[0].node.buttonText}</a>
 

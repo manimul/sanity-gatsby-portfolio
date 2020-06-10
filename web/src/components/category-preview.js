@@ -23,9 +23,9 @@ function CategoryPreview (props) {
    />
  )}
    <div class="text-center absolute opacity-75 group-hover:opacity-100  bottom-0  w-full mx-auto">
-      <div class="bg-brand mx-auto align-middle	w-full  p-8  group-hover:opacity-100 flex flex-col text-center  ">
-         <span class="text-center  text-gray-100 font-luxia font-bold uppercase">{props.title}</span>
-         <a href="" class="transition  text-blue-accent duration-100 ease-in-out transform   group-hover:-translate-y-1  group-hover:scale-105  ">Explore</a>
+      <div class="bg-brand mx-auto align-middle	w-full p-1 md:p-8  group-hover:opacity-100 flex flex-col text-center  ">
+         <h2 class="text-center text-xs md:text-xl  font-luxia font-bold uppercase">{props.title}</h2>
+         <a href="" class="transition text-xs  md:text-base text-blue-accent duration-100 ease-in-out transform   group-hover:-translate-y-1  group-hover:scale-105  ">Explore</a>
 
          </div>
     

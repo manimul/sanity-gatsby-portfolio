@@ -17,15 +17,15 @@ function ProfilePreview (props) {
 
     <Link  to={`/${slug}`}>
       <div className={" flex  transition duration-100 ease-in-out  hover:-translate-y-1 transform hover:scale-105 rounded overflow-hidden shadow bg-brand " + (props.stack ? ' flex-row h-16 p-1 justify-center items-center' : ' flex-col' )}>
-      {props.categories[0].title && !props.stack && <div className={"px-4 py-1 bg-brand-lighter text-center "}>
+      {props.categories[0].title && !props.stack && <div className={"px-4 py-1 bg-brand-lighter text-center " + (props.catView ? 'hidden' : 'block' )}>
       
-       <p className={"text-base font-bold tracking-wide "}>{props.categories[0].title}</p>
+       <p className={"text-xs  md:text-base font-luxia uppercase tracking-wide "}>{props.categories[0].title}</p>
       </div>}
         {props.mainImage && props.mainImage.asset && !props.stack &&  (
           <div className={(props.stack ? '  w-1/4 ' : ' w-full' )}>
-          <img className={"opacity-75 hover:opacity-100 w-full"+ (props.stack ? ' rounded-full' : 'rounded-none ' )}
+          <img className={" opacity-75 hover:opacity-100 w-full"+ (props.stack ? ' rounded-full' : 'rounded-none ' )}
             src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
+              .width(400)
               .height(Math.floor((9 / 16) * 600))
               .url()}
             alt={props.mainImage.alt}
@@ -33,8 +33,8 @@ function ProfilePreview (props) {
           </div>
         )}
          {props.mainImage && props.mainImage.asset && props.stack &&  (
-          <div className={(props.stack ? '  w-1/4 ' : ' w-full' )}>
-          <img className={"opacity-75 hover:opacity-100 w-full"+ (props.stack ? ' rounded-full' : 'rounded-none ' )}
+          <div className={(props.stack ? '  w-12  h-12 rounded-full overflow-hidden ' : ' w-full' )}>
+          <img className={"opacity-75 hover:opacity-100 h-full object-cover"}
             src={imageUrlFor(buildImageObj(props.mainImage))
               
               

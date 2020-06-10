@@ -25,7 +25,9 @@
     "browserslist": "^4.12.0",
     "caniuse-lite": "^1.0.30001066",
     "gatsby-plugin-anchor-links": "^1.1.1",
+    "gatsby-plugin-feed": "^2.5.5",
     "gatsby-plugin-postcss": "^2.3.2",
+    "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
     "gatsby-plugin-smoothscroll": "^1.1.0",
     "typeface-barlow": "0.0.71"
   }

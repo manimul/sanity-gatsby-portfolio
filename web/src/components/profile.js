@@ -29,16 +29,16 @@ function Profile (props, relatedProfiles) {
   return (
     <div id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}>
       <section id="profile-bio">
-      <div className="flex-row w-full py-5">
+      <div className="flex-row w-full py-5 text-center md:text-left ">
       
       {categories.map(category => (
         <Link  to={category.slug.current} >
-                    <p  className="w-full text-lg uppercase font-semibold text-brand-accent" key={category._id}>{category.title}</p>
+                    <p  className="w-full md:text-lg font-semibold font-luxia uppercase text-brand-accent" key={category._id}>{category.title}</p>
                     </Link>    ))} 
 
 
-      <h1 className="w-full text-5xl font-serif" >{name}</h1>
-      <h2 className="w-full  text-lg uppercase opacity-50 font-light italic" >{title}</h2>
+      <h1 className="w-full text-2xl md:text-5xl font-luxia" >{name}</h1>
+      <h2 className="w-full  md:text-lg  opacity-50 font-light " >{title}</h2>
 
       </div>
 
@@ -57,14 +57,14 @@ function Profile (props, relatedProfiles) {
         </div>
       )}
       
-        <div className={"bg-white text-brand-dark w-full md:w-2/5 p-12"}>
+        <div className={"bg-white text-brand-dark w-full md:w-2/5 p-6 md:p-12"}>
           <div id="content" >
           {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
 
           </div>
-          <div className={"text-brand-dark w-full ml-4 md:w-1/5 p-4 text-white"}>
-           <h2 className='font-bold  border-b-2'>Explore Related Profiles</h2>
+          <div className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4 text-white"}>
+           <h2 className='font-bold text-center md:text-left '>Explore Related Profiles</h2>
            <ul>
        
       </ul>

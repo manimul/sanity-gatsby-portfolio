@@ -29,10 +29,11 @@ function ProfilePreviewGrid (props, Items) {
 
         {props.nodes && 
           props.nodes.slice(0, 8 ).map(node => (
-            <li className={'w-1/2 ' + (props.stack ? ' md:w-full ' : ' md:w-1/4 px-3' )} key={node.id}>
+            <li className={ (props.stack ? 'w-full ' : 'w-1/2 md:w-1/4 px-3' )} key={node.id}>
               <ProfilePreview 
               {...node} 
               stack = {props.stack}
+              catView = {props.catView}
               />
             </li>
           ))}

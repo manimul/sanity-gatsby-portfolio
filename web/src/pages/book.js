@@ -60,7 +60,7 @@ export const query = graphql`
         buttonText
         flow
         subtitle
-        
+        body
         title
         image {
           asset {
@@ -155,7 +155,7 @@ const BookPage = props => {
       <Container> 
 
     
-        <Hero title={page.pageModules[0].title}  image={page.pageModules[0].image.asset.url}  buttonText={'Buy the Book'} reverse={true} />
+        <Hero title={page.pageModules[0].title} subtitle={page.pageModules[0].subtitle} description={page.pageModules[0].body}  image={page.pageModules[0].image.asset.url}  buttonText={'Buy the Book'}  />
     
 <section id = "image-gallery" className='w-1/2'>
 <h2 className='w-full'>Look Inside</h2>

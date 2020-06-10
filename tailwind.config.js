@@ -7,7 +7,7 @@ module.exports = {
         accent: '#34A285',
         default: '#170f19',
         lighter: '#343749',
-        dark: '#170f19', 
+        dark: '#100A12', 
       },
       blue: {
         accent: '#ED9700',

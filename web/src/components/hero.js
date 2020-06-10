@@ -21,8 +21,8 @@ function Hero (props) {
    
  </div>
 
- <div className="w-full md:w-3/5 -mr-16 items-center">
-     <img className="w-full md:w-5/5 z-50" src={props.image}></img>
+ <div className="w-full md:w-3/5  items-center">
+     <img className="w-full p-4  z-50" src={props.image}></img>
  </div>
  
 </div>

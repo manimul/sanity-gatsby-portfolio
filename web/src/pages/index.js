@@ -152,7 +152,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
      
       <Container> 
-        <Hero title={site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
+        <Hero title={"Discover "+site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />
        <div id ="content_intro">
         <FeaturedRow></FeaturedRow>
         
@@ -178,6 +178,7 @@ const IndexPage = props => {
               nodes={profileNodes}
               browseMoreHref='/category/'
               showAmount= '3'
+              
             />
           )}
         </section>

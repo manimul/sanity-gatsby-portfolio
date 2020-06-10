@@ -13,8 +13,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-smoothscroll`,
-
-
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -24,6 +22,6 @@ module.exports = {
         overlayDrafts: !isProd && token
       }
       
-    }
+    },
   ]
 }
