@@ -2,6 +2,10 @@ import {Link} from 'gatsby'
 import React from 'react'
 import subscribeImg from '../img/subscribe.png'
 
+
+
+
+
 const Footer = ({ siteTitle, siteDescription, siteLogo}) => (  
 
 <footer className="">
@@ -10,12 +14,13 @@ const Footer = ({ siteTitle, siteDescription, siteLogo}) => (
       <div className="md:w-1/2 md:pt-16">
          <h2 className="text-2xl md:text-5xl font-luxia leading-tight">Subscribe to the Who's Who in Ghana Newsletter</h2>
          <p className="md:text-xl font-normal pt-4 max-w-md">Every week we share a newsletter than contains a sample of some of the fascinating profiles we document on our platform.</p>
-         <form name="subscribe" class="w-full flex flex-col md:flex-row flex-wrap mt-6  mb-6 w-full  md:mb-0 " method="POST" data-netlify="true">
+         <form name="subscribe"  class="w-full flex flex-col md:flex-row flex-wrap mt-6  mb-6 w-full  md:mb-0 " method="POST" data-netlify="true">
       <label class="block uppercase w-full tracking-wide text-xs font-bold mb-2" for="grid-first-name">
         Your email address
       </label>
 
-      <input class="appearance-none block w-full md:w-1/2   text-brand-dark  md:ml-0   border rounded px-8 py-4 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="email" placeholder="name@email.com"/>
+   <input type="hidden" name="form-name" value="subscribe" ></input>
+      <input  class="appearance-none block w-full md:w-1/2   text-brand-dark  md:ml-0   border rounded px-8 py-4 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="email" placeholder="name@email.com"/>
       <button type="submit" className="transition w-full md:w-1/4 text-center md:-ml-1  duration-100 ease-in-out transform    hover:scale-105  bg-brand-accent font-bold rounded-sm  shadow px-8 py-4 font-semibold ">Subscribe</button>
 
     </form>
