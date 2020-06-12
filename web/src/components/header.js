@@ -59,9 +59,11 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
         <Link class ="opacity-75  hover:opacity-100  " to='/power-ladies/'>Power Ladies</Link>
 				</li>
 			
+				<li class=" md:hidden md:mr-3 md:mt-0  ">
+        <Link class ="opacity-75  hover:opacity-100  " to='/categories/'>All Categories</Link>
+				</li>
 
-
-        <li class=" md:mr-3 md:mt-0   hover:opacity-100  focus:opacity-100  "><button  className={`${ catExpanded ? `uppercase text-sm font-regular opacity-100  ` : `hover:opacity-100  uppercase text-sm font-regular opacity-75` } `} onClick={() => toggleCatExpansion(!catExpanded)}>More Categories</button>
+        <li class="hidden md:block md:mr-3 md:mt-0   hover:opacity-100  focus:opacity-100  "><button  className={`${ catExpanded ? `uppercase text-sm font-regular opacity-100  ` : `hover:opacity-100  uppercase text-sm font-regular opacity-75` } `} onClick={() => toggleCatExpansion(!catExpanded)}>More Categories</button>
       </li>
             
          

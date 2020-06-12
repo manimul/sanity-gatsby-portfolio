@@ -8,7 +8,7 @@ import styles from './profile-preview-grid.module.css'
 function CategoryPreviewGrid (props) {
   return (
    
-    <div className="md:py-6 md:my-20" >
+    <div className="md:py-6 md:my-6" >
     
       {props.title && <h2 className={"text-center font-serif text-2xl md:text-5xl  md:py-4"}>{props.title}</h2>}
       <ul className="grid grid-cols-2 gap-4 mb-8">
