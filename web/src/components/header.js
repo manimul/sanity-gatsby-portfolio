@@ -17,15 +17,15 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
   <div className="">
 
     <div className="bg-brand fixed  w-full shadow z-50">
-	<div className='invisible md:visible'><Sidebar/></div>
+	<div className='invisible xl:visible'><Sidebar/></div>
 
-      <nav class="container flex items-center mx-auto justify-between flex-wrap py-1  md:pb-3 px-5 md:px-0 w-full  top-0">
+      <nav class="container flex md:items-end mx-auto justify-start   align-baseline flex-wrap  md:py-6 px-5 md:px-0 w-full ">
 
-		<div class="flex items-center flex-shrink-0  mr-6">
-    <Link to='/'><img className='w-32 md:w-48 md:mt-4' src={siteLogo}/></Link>
+		<div class="flex items-center  flex-shrink-0  ml-4  md:ml-0 mr-6">
+    <Link to='/'><img className='w-32 md:w-48 ' src={siteLogo}/></Link>
 		</div>
 
-		<div class="block order-last py-4 md:hidden">
+		<div class="block order-first md:order-last py-4 md:hidden">
 			<button onClick={() => toggleExpansion(!isExpanded)} id="nav-toggle" class="flex  px-3 py-2 rounded ">
 				<svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 			</button>
@@ -34,37 +34,34 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
 	
 
 		<div className={`flex flex-col`}>
-		<div className='-mt-2 w-full flex-grow lg:flex lg:items-center md:w-auto hidden md:block text-xs pb-2 md:pt-0'>
-			  <ul className='list-reset md:flex justify-end flex-1 items-center uppercase '>
-			  <li className='mr-5 opacity-50 hover:opacity-100 align-middle '><a href="https://facebook.com/whoswhoghana" className="flex justify-center items-center"  ><span className=" " ><Icon  symbol='facebook'/></span><span className="pl-1">Facebook</span></a>
-</li>
-			  <li className='mr-5 opacity-50  hover:opacity-100 '><a href="https://twitter.com/whoswhoghana" className="flex justify-center items-center"  ><span className="" ><Icon  symbol='twitter'/></span><span className="pl-1">Twitter</span></a>
-</li>
-			  <li className='opacity-50  hover:opacity-100'><a href="https://instagram.com/whoswhoghana" className="flex justify-center items-center" ><span className=' ' ><Icon  symbol='instagram'/></span><span className="pl-1">Instagram</span></a>
-</li>
-				  </ul>
-		  </div>
-		<div class={`${ isExpanded ? `absolute bg-brand text-xl left-0 text-center h-screen mt-6 mmx-auto` : `hidden` }  w-full flex-grow lg:flex lg:items-center lg:w-auto  lg:block pt-6 pb-1 lg:pt-0`} id="nav-content">
-			<ul class=" transform  transition ease-in-out duration-150 list-reset lg:flex justify-end flex-1 items-center  font-medium">
-				<li class="  md:mr-5 md:mt-0 opacity-50  hover:opacity-100">
-        <Link to='/most-influential/'>Most Influential</Link>
+
+
+
+
+		<div class={`${ isExpanded ? `absolute bg-brand text-xl left-0 text-center h-screen mt-12 mmx-auto` : `hidden` }  w-full flex-grow md:flex md:items-end lg:w-auto  lg:block pt-6  lg:pt-0`} id="nav-content">
+			<ul class=" transform  transition ease-in-out duration-150 list-reset lg:flex justify-start flex-1 items-end uppercase text-sm font-medium">
+			<li class="  md:mr-3 md:mt-0 ">
+        <Link  class ="opacity-75  hover:opacity-100" to='/'>Home</Link>
 				</li>
-				<li class="md:mr-5 md:mt-0 opacity-50 hover:opacity-100">
-        <Link to='/entrepreneurs/'>Entrepreneurs</Link>
+				<li class="  md:mr-3 md:mt-0 ">
+        <Link  class ="opacity-75  hover:opacity-100" to='/most-influential/'>Most Influential</Link>
 				</li>
-				<li class="md:mr-5 md:mt-0 opacity-50  hover:opacity-100">
-        <Link to='/spiritual-leaders/'>Spiritual Leaders</Link>
+				<li class="md:mr-3 md:mt-0">
+        <Link class ="opacity-75  hover:opacity-100" to='/entrepreneurs/'>Entrepreneurs</Link>
 				</li>
-				<li class="md:mr-5 md:mt-0 opacity-50  hover:opacity-100">
-        <Link to='/corporate-gurus/'>Corporate</Link>
+				<li class="md:mr-3 md:mt-0">
+        <Link class ="opacity-75  hover:opacity-100" to='/spiritual-leaders/'>Spiritual Leaders</Link>
 				</li>
-        <li class="md:mr-5 md:mt-0  opacity-50  hover:opacity-100">
-        <Link to='/power-ladies/'>Power Ladies</Link>
+				<li class="md:mr-3 md:mt-0">
+        <Link class ="opacity-75  hover:opacity-100" to='/corporate-gurus/'>Corporate</Link>
+				</li>
+        <li class="md:mr-3 md:mt-0  ">
+        <Link class ="opacity-75  hover:opacity-100  " to='/power-ladies/'>Power Ladies</Link>
 				</li>
 			
 
 
-        <li class=" md:mr-5 md:mt-0 opacity-50  hover:opacity-100 "><button onClick={() => toggleCatExpansion(!catExpanded)}>All Categories</button>
+        <li class=" md:mr-3 md:mt-0   hover:opacity-100  focus:opacity-100  "><button  className={`${ catExpanded ? `uppercase text-sm font-regular opacity-100  ` : `hover:opacity-100  uppercase text-sm font-regular opacity-75` } `} onClick={() => toggleCatExpansion(!catExpanded)}>More Categories</button>
       </li>
             
          
@@ -72,58 +69,63 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
 
 		 
 
-		  <li className="text-blue-accent opacity-50 hover:opacity-100 md:mt-1 ">
+		  <li className="text-blue-accent md:mr-5 md:mt-0   ">
          
-         <Link className="flex justify-center items-center"  to='/book'><span className="text-lg  mt-1 " ><Icon  symbol='book'/></span><span className="pl-1">The Book</span></Link>
+         <Link className="flex justify-center items-center opacity-75 hover:opacity-100 "  to='/book'><span className=" " ><Icon  symbol='book'/></span><span className="pl-1">The Book</span></Link>
          </li>
          
-
+		 <li className='md:mr-3 md:mt-0 opacity-50 text-base mb-1 hover:opacity-100  '><a href="https://facebook.com/whoswhoghana" className=""  ><Icon  symbol='facebook'/></a>
+</li>
+			  <li className='md:mr-3 md:mt-0 opacity-50 text-base  mb-1 hover:opacity-100 '><a href="https://twitter.com/whoswhoghana" className="  "  ><Icon  symbol='twitter'/></a>
+</li>
+			  <li className='md:mr-3 md:mt-0 opacity-50 text-base   mb-1 hover:opacity-100'><a href="https://instagram.com/whoswhoghana" className="" ><Icon  symbol='instagram'/></a>
+</li>
 
 
 		 
 
 			</ul>
-		</div></div>
-	 
+		</div>
+		
+		
+		</div>
+		
 	</nav>
-  <div role="toggle" class={`${ catExpanded ? `w-full bg-brand-dark mt-0  pt-3 pb-3` : `hidden` } `}>
-    <ul className="container mx-auto   font-semibold text-center leading-snug list-reset lg:flex flex-wrap justify-end flex-1   ">
+	
+  <div role="toggle" class={`${ catExpanded ? `w-full bg-brand-dark mt-0  pt-3 pb-3 hidden md:block` : `hidden` } `}>
+    <ul className="container mx-auto   font-medium uppercase text-xs text-center leading-snug list-reset lg:flex flex-wrap justify-end flex-1   ">
         <li class="md:mr-2  md:mt-0 my-2 p-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/power-ladies/'>Statesmen</Link>
+        <Link to='/statesmen/'>Statesmen</Link>
 				</li>
 				<li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Traditional Leaders</Link>
+        <Link to='/traditional-leaders/'>Traditional Leaders</Link>
+				</li>
+        <li class="md:mr-4  md:mt-0 p-2 my-2  rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
+        <Link to='/politicians/'>Politicians</Link>
 				</li>
         <li class="md:mr-2  md:mt-0 p-2 my-2  rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Politicians</Link>
-				</li>
-        <li class="md:mr-2  md:mt-0 p-2 my-2  rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Media Industry</Link>
+        <Link to='/media-personalities/'>Media Personalities</Link>
 				</li>
         <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Music Industry</Link>
+        <Link to='/music-industry/'>Music Industry</Link>
 				</li>
         <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Movie Stars</Link>
+        <Link to='/movie-stars/'>Movie Stars</Link>
 				</li>
         <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Stage Artists</Link>
+        <Link to='/stage-artists/'>Stage Artists</Link>
 				</li>
-        <li class="md:mr-2  md:mt-0 my-2 p-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Media Personalities</Link>
+     
+        <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
+        <Link to='/legal-practitioners/'>Legal Practitioners</Link>
 				</li>
         <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Legal Practitioners</Link>
-				</li>
-        <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Sporting Personalities</Link>
+        <Link to='/sporting-personalities/'>Sporting Personalities</Link>
 				</li>
         <li class="md:mr-2 md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Humanitarians</Link>
+        <Link to='/humanitarians/'>Humanitarians</Link>
 				</li>
-        <li class="md:mr-2  md:mt-0 p-2 my-2 rounded-md bg-blue-lighter opacity-50  hover:opacity-100">
-        <Link to='/categories/'>Parliamentarians</Link>
-				</li>
+       
         </ul>
 			</div>
 

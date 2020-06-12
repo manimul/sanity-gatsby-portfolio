@@ -176,16 +176,14 @@ const IndexPage = props => {
             <ProfilePreviewGrid
               title='Newest Profiles'
               nodes={profileNodes}
-              browseMoreHref='/category/'
+              
               showAmount= '3'
               
             />
           )}
         </section>
         
-        <section id="subscribe_promo">    
-          <CtaSubscribe></CtaSubscribe>
-        </section>
+       
         </div>
 
       </Container>

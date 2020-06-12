@@ -33,7 +33,7 @@ const AboutPage = props => {
       <SEO title='About' />
       <Container>
         <h1 className={responsiveTitle1}>{title}</h1>
-       <pre>{JSON.stringify(data, null,2)}</pre>
+       <pre>{JSON.stringify(data.title, null,2)}</pre>
       </Container>
     </Layout>
   )

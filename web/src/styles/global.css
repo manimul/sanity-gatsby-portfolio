@@ -29,6 +29,9 @@
     padding-bottom:1em;
   }
 
+  [aria-current]:not([aria-current="false"]) {
+    opacity: 100;
+    font-style:italic;
 
-
+  }
   

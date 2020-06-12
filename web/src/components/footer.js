@@ -17,7 +17,7 @@ const Footer = ({ siteTitle, siteDescription, siteLogo}) => (
       <label class="block uppercase w-full tracking-wide text-xs font-bold mb-2" for="grid-first-name">
         Your email address
       </label>
-      <input class="appearance-none block w-full text-brand-dark md:w-auto mx-auto md:ml-0  md:w-3/4 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="name@email.com"/>
+      <input class="appearance-none block w-full text-brand-dark md:w-auto mx-auto md:ml-0  md:w-3/4 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="email" placeholder="name@email.com"/>
       <button type="submit" className="transition w-auto md:w-1/4 duration-100 ease-in-out transform  hover:-translate-y-1  hover:scale-105  bg-brand-accent hover:opacity-75 text-white font-bold rounded-sm  shadow inline-block px-8 py-4 font-semibold ">Subscribe</button>
 
     </div></div></form>
@@ -40,16 +40,26 @@ const Footer = ({ siteTitle, siteDescription, siteLogo}) => (
          <p class="mt-4 mb-8">{siteDescription}</p> 
       </div>
       <div class=" w-full md:w-1/4  mb-6">
-         <div class="text-xs uppercase  opacity-50 font-medium">Product</div>
-         <a class="my-3 block" href="/#">Home<span class="text-xs p-1"></span></a><a class="my-3 block" href="/#">All Categories </a><a class="my-3 block" href="/#">The Book<span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Events<span class="text-teal-600 text-xs p-1"></span></a> 
+         <div class="text-xs uppercase  opacity-50 font-medium">Explore</div>
+         <a class ="my-3 block" href='/'>Home</a>
+         <a class ="my-3 block" href='/categories'>All Categories</a>
+         <a  class ="my-3 block" href='/about'>About</a>
+
       </div>
+    
       <div class=" w-full  md:w-1/4 mb-6 ">
          <div class="text-xs uppercase opacity-50  font-medium">Legal</div>
          <a class="my-3 block" href="/#">GDPR <span class=" text-xs p-1"></span></a><a class="my-3 block" href="/#">Privacy Policy <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Conditions <span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
       <div class=" w-full  md:w-1/4 ">
-         <div class="text-xs uppercase opacity-50  font-medium">Contact us</div>
-         <a class="my-3 block" href="/#">XXX XXXX,XXX XXXX , XXX XXXX <span class=" text-xs p-1"></span></a><a class="my-3 block" href="/#">hello@whoswhoghana.com <span class="text-teal-600 text-xs p-1"></span></a> 
+         <div class="text-xs uppercase opacity-50  font-medium">Social Media</div>
+         <a class="my-3 block" target="_blank"  href="https://facebook.com/whoswhoghana">Facebook <span class=" text-xs p-1"></span></a>
+         <a class="my-3 block"target="_blank"  href="https://twitter.com/whoswhoinghana">Twitter<span class="text-teal-600 text-xs p-1"></span></a>
+         <a class="my-3 block" target="_blank" href="https://instagram.com/whoswhoghana">Instagram<span class="text-teal-600 text-xs p-1"></span></a> 
+      </div>
+      <div class=" w-full  md:w-1/4 ">
+         <div class="text-xs uppercase opacity-50  font-medium">Contact Us</div>
+         <a class="my-3 block" href="/#">P.O. Box 10481 Accra North,<br></br> 28 Oroko Avenue Kokomlemle,<br></br> Accra <span class=" text-xs p-1"></span></a><a class="my-3 block" href="mailto:hello@whoswhoghana.com">hello@whoswhoghana.com <span class="text-teal-600 text-xs p-1"></span></a> 
       </div>
    </div>
 </div>
