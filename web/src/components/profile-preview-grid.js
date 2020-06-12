@@ -22,7 +22,7 @@ function ProfilePreviewGrid (props, Items) {
 
 
     <div className={(props.stack ? ' md:m-0' : ' md:m-20 ' )}>
-      {props.title && !props.stack && <h2 className={"text-center font-serif text-2xl md:text-5xl  py-4"}>{props.title}</h2>}
+      {props.title && !props.stack && <h2 className={"text-center font-serif text-2xl md:text-5xl  py-4"}>Explore the<span className="text-blue-accent"> {props.title} </span>Profiles</h2>}
       
       <ul className='flex flex-wrap flex-row'>
       

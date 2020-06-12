@@ -174,7 +174,7 @@ const IndexPage = props => {
         <section id="featured_profiles">
           {profileNodes && (
             <ProfilePreviewGrid
-              title='Newest Profiles'
+              title='Newest'
               nodes={profileNodes}
               
               showAmount= '3'

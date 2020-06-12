@@ -19,9 +19,9 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
     <div className="bg-brand fixed  w-full shadow z-50">
 	<div className='invisible xl:visible'><Sidebar/></div>
 
-      <nav class="container flex md:items-end mx-auto justify-start   align-baseline flex-wrap  md:py-6 px-5 md:px-0 w-full ">
+      <nav class="container flex md:items-end mx-auto justify-between   md:justify-start   align-baseline flex-wrap  md:py-6 px-5 md:px-0 w-full ">
 
-		<div class="flex items-center  flex-shrink-0  ml-4  md:ml-0 mr-6">
+		<div class="flex items-center  flex-shrink-0   md:ml-0 mr-6">
     <Link to='/'><img className='w-32 md:w-48 ' src={siteLogo}/></Link>
 		</div>
 
@@ -74,11 +74,11 @@ function Header ({onHideNav, onShowNav, showNav, siteTitle, siteLogo}) {
          <Link className="flex justify-center items-center opacity-75 hover:opacity-100 "  to='/book'><span className=" " ><Icon  symbol='book'/></span><span className="pl-1">The Book</span></Link>
          </li>
          
-		 <li className='md:mr-3 md:mt-0 opacity-50 text-base mb-1 hover:opacity-100  '><a href="https://facebook.com/whoswhoghana" className=""  ><Icon  symbol='facebook'/></a>
+		 <li className='hidden md:block md:mr-3 md:mt-0 opacity-50 text-base mb-1 hover:opacity-100  '><a href="https://facebook.com/whoswhoghana" className=""  ><Icon  symbol='facebook'/></a>
 </li>
-			  <li className='md:mr-3 md:mt-0 opacity-50 text-base  mb-1 hover:opacity-100 '><a href="https://twitter.com/whoswhoghana" className="  "  ><Icon  symbol='twitter'/></a>
+			  <li className='hidden md:block md:mr-3 md:mt-0 opacity-50 text-base  mb-1 hover:opacity-100 '><a href="https://twitter.com/whoswhoghana" className="  "  ><Icon  symbol='twitter'/></a>
 </li>
-			  <li className='md:mr-3 md:mt-0 opacity-50 text-base   mb-1 hover:opacity-100'><a href="https://instagram.com/whoswhoghana" className="" ><Icon  symbol='instagram'/></a>
+			  <li className='hidden md:block md:mr-3 md:mt-0 opacity-50 text-base   mb-1 hover:opacity-100'><a href="https://instagram.com/whoswhoghana" className="" ><Icon  symbol='instagram'/></a>
 </li>
 
 
