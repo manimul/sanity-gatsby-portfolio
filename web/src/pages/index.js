@@ -149,7 +149,7 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={"Explore Ghana's defining people"} description={site.description} keywords={site.keywords} />
      
       <Container> 
         <Hero title={"Discover "+site.title} subtitle={site.subtitle} description={site.description} image={heroImg} buttonText={'Explore'} />

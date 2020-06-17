@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {StaticQuery, graphql} from 'gatsby'
+const siteUrl = "https://whoswhoghana.app"
+import metaImg from '../img/meta-image.png'
 
-function SEO ({description, lang, meta, keywords, title}) {
+function SEO ({description, lang, meta, keywords, image, title}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -11,10 +13,12 @@ function SEO ({description, lang, meta, keywords, title}) {
         const metaDescription = description || (data.site && data.site.description) || ''
         const siteTitle = (data.site && data.site.title) || ''
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
+        const metaImage = image || metaImg
+        const metaTitle = title +" | "+ data.site.title
         return (
           <Helmet
             htmlAttributes={{lang}}
-            title={title}
+            metaTitle={title}
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
             meta={[
               {
@@ -23,7 +27,7 @@ function SEO ({description, lang, meta, keywords, title}) {
               },
               {
                 property: 'og:title',
-                content: title
+                content: metaTitle
               },
               {
                 property: 'og:description',
@@ -48,9 +52,17 @@ function SEO ({description, lang, meta, keywords, title}) {
               {
                 name: 'twitter:description',
                 content: metaDescription
+              },
+              {
+                property: "og:image",
+                content: metaImage
               }
             ]
               .concat(
+                
+
+
+                
                 keywords && keywords.length > 0
                   ? {
                     name: 'keywords',
@@ -77,6 +89,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 }
 

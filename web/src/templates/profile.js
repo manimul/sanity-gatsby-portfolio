@@ -136,6 +136,7 @@ export const query = graphql`
         }
         asset {
           _id
+          url
         }
         alt
       }
@@ -157,7 +158,7 @@ const ProfileTemplate = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {profile && <SEO title={profile.name || 'Untitled'} />}
+      {profile && <SEO title={profile.name || 'Untitled'} description={profile._rawBody[0].children[0].text || 'Untitled'}  image={profile.mainImage.asset.url || 'Untitled'} />}
 
       {errors && (
         <Container>

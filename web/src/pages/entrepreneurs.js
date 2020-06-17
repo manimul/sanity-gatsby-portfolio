@@ -124,9 +124,13 @@ const EntrepreneursPage = props => {
 
 
   const profileNodes = data && data.profiles  && mapEdgesToNodes(data.profiles).filter(filterOutDocsWithoutSlugs)
+  const image = data.categories.mainImage.asset.url
+
   return (
+
+
     <Layout>
-      <SEO title={data.categories.title} />
+      <SEO title={data.categories.title} description={data.categories.description} image={data.categories.mainImage.asset.url}/>
       <Container>
 
 
