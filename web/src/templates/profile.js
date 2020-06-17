@@ -155,7 +155,7 @@ const ProfileTemplate = props => {
   const {data, errors} = props
   const profile = data && data.sampleProfile 
   const relatedProfiles = data && data.related
-  const descriptionText= profile._rawBody[0].children[0].text ? profile._rawBody[0].children[0] : 'The guide to Ghanaian Excellence'
+  const descriptionText= profile._rawBody[0].children[0].text ? profile._rawBody[0].children[0].text : 'The guide to Ghanaian Excellence'
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
