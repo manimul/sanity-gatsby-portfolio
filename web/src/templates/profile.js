@@ -155,10 +155,11 @@ const ProfileTemplate = props => {
   const {data, errors} = props
   const profile = data && data.sampleProfile 
   const relatedProfiles = data && data.related
+  const descriptionText= profile._rawBody[0].children[0].text ? profile._rawBody[0].children[0] : 'The guide to Ghanaian Excellence'
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {profile && <SEO title={profile.name || 'Untitled'} description={profile._rawBody[0].children[0].text || 'Untitled'}  image={profile.mainImage.asset.url || 'Untitled'} />}
+      {profile && <SEO title={profile.name || 'Untitled'} description={descriptionText || 'Untitled'}  image={profile.mainImage.asset.url || 'Untitled'} />}
 
       {errors && (
         <Container>
