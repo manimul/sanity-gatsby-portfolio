@@ -25,8 +25,8 @@ function ProfilePreview (props) {
           <div className={(props.stack ? '  w-1/4 ' : ' w-full' )}>
           <img className={" opacity-75 hover:opacity-100 w-full"+ (props.stack ? ' rounded-full' : 'rounded-none ' )}
             src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(400)
-              .height(Math.floor((9 / 16) * 600))
+              .width(300)
+              .height(Math.floor((9 / 16) * 350))
               .url()}
             alt={props.mainImage.alt}
           />
@@ -36,8 +36,8 @@ function ProfilePreview (props) {
           <div className={(props.stack ? '  w-12  h-12 rounded-full overflow-hidden ' : ' w-full' )}>
           <img className={"opacity-75 hover:opacity-100 h-full object-cover"}
             src={imageUrlFor(buildImageObj(props.mainImage))
-              
-              
+              .width(50)
+              .height(50)
               .url()}
             alt={props.mainImage.alt}
           />

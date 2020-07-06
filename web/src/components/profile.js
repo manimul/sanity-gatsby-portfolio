@@ -65,9 +65,7 @@ function Profile (props, relatedProfiles) {
           </div>
           <div className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4 text-white"}>
            <h2 className='font-bold text-center md:text-left '>Explore Related Profiles</h2>
-           <ul>
-       
-      </ul>
+         
    {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
               <div>
               
@@ -85,7 +83,7 @@ function Profile (props, relatedProfiles) {
 <section id="featured_profiles">
           {profileNodes && (
             <ProfilePreviewGrid
-              title='Newest Profiles'
+              title='New Profiles'
               nodes={profileNodes}
               browseMoreHref='/category/'
               showAmount= '3'
