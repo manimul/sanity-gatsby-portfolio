@@ -64,7 +64,7 @@ function SEO ({description, lang, meta, keywords, path, image, title}) {
               },
               {
                 property: 'og:url',
-                content: siteUrl+currentPath
+                content: siteUrl+currentPath+'/'
               }
 
               

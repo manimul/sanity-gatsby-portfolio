@@ -40,7 +40,7 @@ async function createProfilePages (graphql, actions, reporter) {
     .forEach(edge => {
       const id = edge.node.id
       const cat = edge.node.categories[0].slug.current
-      const slug = edge.node.categories[0].slug.current + `/` + edge.node.slug.current
+      const slug = edge.node.categories[0].slug.current + `/` + edge.node.slug.current + '/'
       const path = `/${slug}/`
 
       reporter.info(`Creating profile page: ${path}`)
