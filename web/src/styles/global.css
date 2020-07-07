@@ -25,11 +25,6 @@
     background-size:cover;
   }
 
-  #profile-page #content p{
-    padding-bottom:2em;
-  }
-
-
   .bm-burger-button {
     position: fixed;
     width: 1em;
@@ -37,6 +32,13 @@
     right: 2em;
    top: 2.3rem;
   }
+
+  #profile-page #content p{
+    padding-bottom:2em;
+  }
+
+
+  
   
   .bm-burger-bars {
     background: #ffffff;

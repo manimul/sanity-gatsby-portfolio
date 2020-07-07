@@ -40,8 +40,10 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: false,
-        develop: false,
+        develop: true,
         tailwind: true,
+        ignore: ['styles/sidebar.css'],
+        
       },
     }
   ]
