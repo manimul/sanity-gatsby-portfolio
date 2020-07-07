@@ -34,4 +34,106 @@
     font-style:italic;
 
   }
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 1em;
+  height: 1em;
+  right: 2em;
+ top: 2.3rem;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #ffffff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+ 
+}
+
+/* Position and sizing of clickable cross button */
+.bm-menu-wrap .bm-cross-button {
+  position: absolute !important;
+  width: 2em !important;
+  height: 2em !important;
+  right: 2em !important;
+ top: 2.1rem !important;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #ffffff;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #261523;
+  padding: 2rem 2rem;
+  font-size: 1.5em;
+  font-weight:bold;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  /* padding-left:1rem; */
+  padding: 4rem 0;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  padding:0 0 1rem;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+.menu-item{
+
+}
+.menu-item:active{
+   
+
+}
+
+.topright{
+  display: flex;
+  float: right;
+  margin-right: 6px;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
