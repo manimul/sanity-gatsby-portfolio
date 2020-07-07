@@ -5,7 +5,7 @@ import {StaticQuery, graphql} from 'gatsby'
 const siteUrl = "https://whoswhoghana.app"
 import metaImg from '../img/meta-image.png'
 
-function SEO ({description, lang, meta, keywords, image, title}) {
+function SEO ({description, lang, meta, keywords, path, image, title}) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -15,6 +15,7 @@ function SEO ({description, lang, meta, keywords, image, title}) {
         const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
         const metaImage = image || metaImg
         const metaTitle = title +" | "+ data.site.title
+        const currentPath = path || ''
         return (
           <Helmet
             htmlAttributes={{lang}}
@@ -54,9 +55,19 @@ function SEO ({description, lang, meta, keywords, image, title}) {
                 content: metaDescription
               },
               {
-                property: "og:image",
+                property: 'og:image',
                 content: metaImage
+              },
+              {
+                property: 'fb:app_id',
+                content: '285486349462664'
+              },
+              {
+                property: 'og:url',
+                content: siteUrl+currentPath
               }
+
+              
             ]
               .concat(
                 
@@ -87,6 +98,7 @@ SEO.defaultProps = {
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  path: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   image: PropTypes.string.isRequired,

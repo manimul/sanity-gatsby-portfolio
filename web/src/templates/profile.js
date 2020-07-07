@@ -159,7 +159,7 @@ const ProfileTemplate = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {profile && <SEO title={profile.name || 'Untitled'} description={descriptionText || 'Untitled'}  image={profile.mainImage.asset.url || 'Untitled'} />}
+      {profile && <SEO title={profile.name || 'Untitled'} description={descriptionText || 'Untitled'} path={'/'+profile.categories[0].slug.current + `/` + profile.slug.current} image={profile.mainImage.asset.url || 'Untitled'} />}
 
       {errors && (
         <Container>
