@@ -9,7 +9,9 @@ async function createProfilePages (graphql, actions, reporter) {
   const {createPage} = actions
   const result = await graphql(`
     {
-      allSanitySampleProfile(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
+      allSanitySampleProfile(
+        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      ) {
         edges {
           node {
             id
@@ -34,13 +36,11 @@ async function createProfilePages (graphql, actions, reporter) {
 
   profileEdges
     .filter(edge => !isFuture(edge.node.publishedAt))
-    
-    
 
     .forEach(edge => {
       const id = edge.node.id
       const cat = edge.node.categories[0].slug.current
-      const slug = edge.node.categories[0].slug.current + `/` + edge.node.slug.current + '/'
+      const slug = edge.node.categories[0].slug.current + `/` + edge.node.slug.current + ''
       const path = `/${slug}/`
 
       reporter.info(`Creating profile page: ${path}`)
@@ -56,10 +56,3 @@ async function createProfilePages (graphql, actions, reporter) {
 exports.createPages = async ({graphql, actions, reporter}) => {
   await createProfilePages(graphql, actions, reporter)
 }
-
-
-
-
-
-
-

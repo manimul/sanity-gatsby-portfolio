@@ -1,17 +1,17 @@
-import React from 'react'
-import {graphql} from 'gatsby'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import Profile from '../components/profile'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import React from "react";
+import { graphql } from "gatsby";
+import Container from "../components/container";
+import GraphQLErrorList from "../components/graphql-error-list";
+import Profile from "../components/profile";
+import SEO from "../components/seo";
+import Layout from "../containers/layout";
 
 export const query = graphql`
   query ProfileTemplateQuery($id: String!, $cat: String!) {
     profiles: allSanitySampleProfile(
       limit: 6
-      sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
       edges {
         node {
@@ -40,9 +40,9 @@ export const query = graphql`
           }
           title
           name
-          categories{
+          categories {
             title
-            slug{
+            slug {
               current
             }
           }
@@ -54,11 +54,10 @@ export const query = graphql`
       }
     }
 
-    
     related: allSanitySampleProfile(
       limit: 6
-      sort: {fields: [publishedAt], order: DESC}
-      filter: {categories: {elemMatch: {slug: {current: {eq: $cat}}}}, id: {ne: $id}}
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { categories: { elemMatch: { slug: { current: { eq: $cat } } } }, id: { ne: $id } }
     ) {
       edges {
         node {
@@ -87,9 +86,9 @@ export const query = graphql`
           }
           title
           name
-          categories{
+          categories {
             title
-            slug{
+            slug {
               current
             }
           }
@@ -101,14 +100,15 @@ export const query = graphql`
       }
     }
 
-
-    sampleProfile: sanitySampleProfile(id: {eq: $id}) {
+    sampleProfile: sanitySampleProfile(id: { eq: $id }) {
       id
       publishedAt
       categories {
         _id
         title
-        slug{current}
+        slug {
+          current
+        }
       }
       relatedProfiles {
         title
@@ -146,32 +146,37 @@ export const query = graphql`
         current
       }
       _rawBody
-      
     }
   }
-`
+`;
 
 const ProfileTemplate = props => {
-  const {data, errors} = props
-  const profile = data && data.sampleProfile 
-  const relatedProfiles = data && data.related
-  const descriptionText= profile._rawBody[0].children[0].text ? profile._rawBody[0].children[0].text : 'The guide to Ghanaian Excellence'
+  const { data, errors } = props;
+  const profile = data && data.sampleProfile;
+  const relatedProfiles = data && data.related;
+  const descriptionText = profile._rawBody[0].children[0].text
+    ? profile._rawBody[0].children[0].text
+    : "The guide to Ghanaian Excellence";
   return (
     <Layout>
-      {errors && <SEO title='GraphQL Error' />}
-      {profile && <SEO title={profile.name || 'Untitled'} description={descriptionText || 'Untitled'} path={'/'+profile.categories[0].slug.current + `/` + profile.slug.current} image={profile.mainImage.asset.url || 'Untitled'} />}
+      {errors && <SEO title="GraphQL Error" />}
+      {profile && (
+        <SEO
+          title={profile.name || "Untitled"}
+          description={descriptionText || "Untitled"}
+          path={"/" + profile.categories[0].slug.current + `/` + profile.slug.current}
+          image={profile.mainImage.asset.url || "Untitled"}
+        />
+      )}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {profile && <Profile 
-      {...profile} 
-      relatedProfilesList = {relatedProfiles} />}
-      
+      {profile && <Profile {...profile} relatedProfilesList={relatedProfiles} />}
     </Layout>
-  )
-}
+  );
+};
 
-export default ProfileTemplate
+export default ProfileTemplate;
