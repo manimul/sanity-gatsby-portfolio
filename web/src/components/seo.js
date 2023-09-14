@@ -21,10 +21,16 @@ function SEO ({description, lang, meta, keywords, path, image, title}) {
             htmlAttributes={{lang}}
             metaTitle={title}
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
+            title={metaTitle }
+
             meta={[
               {
                 name: 'description',
                 content: metaDescription
+              },
+              {
+                property: 'title',
+                content: metaTitle
               },
               {
                 property: 'og:title',

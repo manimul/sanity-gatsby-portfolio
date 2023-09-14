@@ -50,6 +50,9 @@ export const query = graphql`
           slug {
             current
           }
+          videos {
+          url
+        }
         }
       }
     }
@@ -146,6 +149,9 @@ export const query = graphql`
         current
       }
       _rawBody
+      videos {
+          url
+        }
     }
   }
 `;

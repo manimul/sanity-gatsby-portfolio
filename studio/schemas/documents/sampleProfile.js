@@ -48,6 +48,12 @@ export default {
       title: 'Excerpt',
       type: 'simplePortableText'
     },
+    {
+      name: 'videos',
+      title: 'Videos',
+      type: 'array',
+      of: [{type: 'youtube'}]
+    },
     
     {
       name: 'mainImage',

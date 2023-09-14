@@ -9,6 +9,7 @@ import {
 } from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 import BlockContent from './block-content'
+import YouTubeEmbed from './youtube-embed'
 import Container from './container'
 import RoleList from './role-list'
 import Cta from './cta'
@@ -19,7 +20,7 @@ import styles from './profile.module.css'
 
 function Profile (props, relatedProfiles) {
  
-  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfilesList} = props
+  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfilesList, videos} = props
   const profileNodes = relatedProfilesList
   ? mapEdgesToNodes(relatedProfilesList)
     .filter(filterOutDocsWithoutSlugs)
@@ -30,6 +31,7 @@ function Profile (props, relatedProfiles) {
     <div id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}>
       <section id="profile-bio">
       <div className="flex-row w-full py-5 text-center md:text-left ">
+        
       
       {categories.map(category => (
         <Link  to={category.slug.current} >
@@ -63,8 +65,9 @@ function Profile (props, relatedProfiles) {
           </div>
 
           </div>
-          <div className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4 text-white"}>
-           <h2 className='font-bold text-center md:text-left '>Explore Related Profiles</h2>
+       
+
+          <section className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4  text-white"}>
          
    {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
               <div>
@@ -80,7 +83,18 @@ function Profile (props, relatedProfiles) {
 }
             
 
-<section id="featured_profiles">
+
+
+{videos && videos.length > 0 && 
+          (<>
+            <h2 className='font-bold text-center md:text-left '>Explore Videos</h2>
+
+           { videos.map(video => (<YouTubeEmbed value={video} />))}
+           </>
+            )}
+
+<h2 className='font-bold text-center md:text-left  '>Explore Related Profiles</h2>
+
           {profileNodes && (
             <ProfilePreviewGrid
               title='New Profiles'
@@ -90,9 +104,11 @@ function Profile (props, relatedProfiles) {
               stack = 'true'
             />
           )}
-        </section>
+
+       
           
-          </div>
+          </section>
+         
           </div>
           </section>
 
