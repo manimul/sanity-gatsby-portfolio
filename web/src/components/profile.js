@@ -1,75 +1,83 @@
-import {format, distanceInWords, differenceInDays} from 'date-fns'
-import React from 'react'
-import {Link} from 'gatsby'
-import {buildImageObj} from '../lib/helpers'
+import { format, distanceInWords, differenceInDays } from "date-fns";
+import React from "react";
+import { Link } from "gatsby";
+import { buildImageObj } from "../lib/helpers";
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
-} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import BlockContent from './block-content'
-import YouTubeEmbed from './youtube-embed'
-import Container from './container'
-import RoleList from './role-list'
-import Cta from './cta'
-import ProfilePreviewGrid from '../components/profile-preview-grid'
+} from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
+import BlockContent from "./block-content";
+import YouTubeEmbed from "./youtube-embed";
+import Container from "./container";
+import RoleList from "./role-list";
+import Cta from "./cta";
+import ProfilePreviewGrid from "../components/profile-preview-grid";
 
-import styles from './profile.module.css'
+import styles from "./profile.module.css";
 
-
-function Profile (props, relatedProfiles) {
- 
-  const {_rawBody, name, title, categories, mainImage,  publishedAt, relatedProfilesList, videos} = props
+function Profile(props, relatedProfiles) {
+  const {
+    _rawBody,
+    name,
+    title,
+    categories,
+    mainImage,
+    publishedAt,
+    relatedProfilesList,
+    videos
+  } = props;
   const profileNodes = relatedProfilesList
-  ? mapEdgesToNodes(relatedProfilesList)
-    .filter(filterOutDocsWithoutSlugs)
-    .filter(filterOutDocsPublishedInTheFuture)
-  : []
+    ? mapEdgesToNodes(relatedProfilesList)
+        .filter(filterOutDocsWithoutSlugs)
+        .filter(filterOutDocsPublishedInTheFuture)
+    : [];
 
   return (
-    <div id="profile-page" className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}>
+    <div
+      id="profile-page"
+      className={"container mx-auto flex flex-wrap pt-4 pb-12 md:pt-8 sm:pt-2"}
+    >
       <section id="profile-bio">
-      <div className="flex-row w-full py-5 text-center md:text-left ">
-        
-      
-      {categories.map(category => (
-        <Link  to={category.slug.current} >
-                    <p  className="w-full md:text-lg font-semibold font-luxia uppercase text-brand-accent" key={category._id}>{category.title}</p>
-                    </Link>    ))} 
+        <div className="flex-row w-full py-5 text-center md:text-left ">
+          {categories.map(category => (
+            <Link to={category.slug.current}>
+              <p
+                className="w-full md:text-lg font-semibold font-luxia uppercase text-brand-accent"
+                key={category._id}
+              >
+                {category.title}
+              </p>
+            </Link>
+          ))}
 
-
-      <h1 className="w-full text-2xl md:text-5xl font-luxia" >{name}</h1>
-      <h2 className="w-full  md:text-lg  opacity-50 font-light " >{title}</h2>
-
-      </div>
-
-<div className="flex flex-col md:flex-row ">
-
-      {props.mainImage && mainImage.asset && (
-        <div className="w-full md:w-2/5">
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 10) * 1200))
-              .fit('crop')
-              .url()}
-            alt={mainImage.alt}
-          />
+          <h1 className="w-full text-2xl md:text-5xl font-luxia">{name}</h1>
+          <h2 className="w-full  md:text-lg  opacity-50 font-light ">{title}</h2>
         </div>
-      )}
-      
-        <div className={"bg-white text-brand-dark w-full md:w-2/5 p-6 md:p-12"}>
-          <div id="content" >
-          {_rawBody && <BlockContent blocks={_rawBody || []} />}
+
+        <div className="flex flex-col md:flex-row ">
+          {props.mainImage && mainImage.asset && (
+            <div className="w-full md:w-2/5">
+              <img
+                src={imageUrlFor(buildImageObj(mainImage))
+                  .width(1200)
+                  .height(Math.floor((9 / 10) * 1200))
+                  .fit("crop")
+                  .url()}
+                alt={mainImage.alt}
+              />
+            </div>
+          )}
+
+          <div className={"bg-white text-brand-dark w-full md:w-2/5 p-6 md:p-12"}>
+            <div id="content">{_rawBody && <BlockContent blocks={_rawBody || []} />}</div>
           </div>
 
-          </div>
-       
-
-          <section className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4  text-white"}>
-         
-   {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
+          <section
+            className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4  text-white"}
+          >
+            {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
               <div>
               
                 <ul>
@@ -79,40 +87,34 @@ function Profile (props, relatedProfiles) {
                 </ul>
               </div>
             )}
-*/
-}
-            
+*/}
 
+            {videos && videos.length > 0 && (
+              <>
+                <h2 className="font-bold text-center md:text-left ">Explore Videos</h2>
 
-
-{videos && videos.length > 0 && 
-          (<>
-            <h2 className='font-bold text-center md:text-left '>Explore Videos</h2>
-
-           { videos.map(video => (<YouTubeEmbed value={video} />))}
-           </>
+                {videos.map(video => (
+                  <YouTubeEmbed value={video} />
+                ))}
+              </>
             )}
 
-<h2 className='font-bold text-center md:text-left  '>Explore Related Profiles</h2>
+            <h2 className="font-bold text-center md:text-left  ">Explore Related Profiles</h2>
 
-          {profileNodes && (
-            <ProfilePreviewGrid
-              title='New Profiles'
-              nodes={profileNodes}
-              browseMoreHref='/category/'
-              showAmount= '3'
-              stack = 'true'
-            />
-          )}
-
-       
-          
+            {profileNodes && (
+              <ProfilePreviewGrid
+                title="New Profiles"
+                nodes={profileNodes}
+                browseMoreHref="/category/"
+                showAmount="3"
+                stack="true"
+              />
+            )}
           </section>
-         
-          </div>
-          </section>
+        </div>
+      </section>
 
-          {/* <aside className={styles.metaContent}>
+      {/* <aside className={styles.metaContent}>
       
             
             {categories && categories.length > 0 && (
@@ -144,18 +146,9 @@ function Profile (props, relatedProfiles) {
                 </ul>
               </div>
             )}
-          </aside>*/
-       }
-
-
-
-
-     
-       
-      
+          </aside>*/}
     </div>
-    
-  )
+  );
 }
 
-export default Profile
+export default Profile;
