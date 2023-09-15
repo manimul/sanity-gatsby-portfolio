@@ -57,25 +57,26 @@ function Profile(props, relatedProfiles) {
         </div>
 
         <div className="flex flex-col md:flex-row ">
-          {props.mainImage && mainImage.asset && (
-            <div className="w-full md:w-2/5">
-              <img
-                src={imageUrlFor(buildImageObj(mainImage))
-                  .width(1200)
-                  .height(Math.floor((9 / 10) * 1200))
-                  .fit("crop")
-                  .url()}
-                alt={mainImage.alt}
-              />
+          <div className="flex-col md:w-3/5">
+            {props.mainImage && mainImage.asset && (
+              <div className="w-full ">
+                <img
+                  src={imageUrlFor(buildImageObj(mainImage))
+                    .width(1200)
+                    .height(Math.floor((9 / 10) * 1200))
+                    .fit("crop")
+                    .url()}
+                  alt={mainImage.alt}
+                />
+              </div>
+            )}
+
+            <div className={"bg-white text-brand-dark w-full  p-6 md:p-12"}>
+              <div id="content">{_rawBody && <BlockContent blocks={_rawBody || []} />}</div>
             </div>
-          )}
-
-          <div className={"bg-white text-brand-dark w-full md:w-2/5 p-6 md:p-12"}>
-            <div id="content">{_rawBody && <BlockContent blocks={_rawBody || []} />}</div>
           </div>
-
           <section
-            className={"text-brand-dark w-full md:ml-4 md:w-1/5 py-12 md:py-4 md:px-4  text-white"}
+            className={"text-brand-dark w-full md:ml-4 md:w-2/5 py-12 md:py-4 md:px-4  text-white"}
           >
             {/*    {relatedProfilesList && relatedProfilesList.edges.length > 0 && (
               <div>
@@ -90,22 +91,25 @@ function Profile(props, relatedProfiles) {
 */}
 
             {videos && videos.length > 0 && (
-              <>
-                <h2 className="font-bold text-center md:text-left ">Explore Videos</h2>
+              <section className="mb-6">
+                <h2 className="font-bold md:text-xl text-center md:text-left  mb-6 ">
+                  Watch {name} Videos
+                </h2>
 
                 {videos.map(video => (
                   <YouTubeEmbed value={video} />
                 ))}
-              </>
+              </section>
             )}
 
-            <h2 className="font-bold text-center md:text-left  ">Explore Related Profiles</h2>
+            <h2 className="font-bold md:text-xl text-center md:text-left  ">
+              Explore Related Profiles
+            </h2>
 
             {profileNodes && (
               <ProfilePreviewGrid
-                title="New Profiles"
                 nodes={profileNodes}
-                browseMoreHref="/category/"
+                //browseMoreHref="/category/"
                 showAmount="3"
                 stack="true"
               />
