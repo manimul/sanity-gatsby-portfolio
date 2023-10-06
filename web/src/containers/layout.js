@@ -1,5 +1,5 @@
 import { graphql, StaticQuery } from "gatsby";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 
 const query = graphql`
@@ -20,31 +20,17 @@ function LayoutContainer(props) {
   const [showNav, setShowNav] = useState(false);
 
   ////ADSENSE CODE
-  const scrolled = useRef(false);
-
   useEffect(() => {
-    const onScroll = () => {
-      if (!scrolled.current) {
-        const head = document.head;
+    const head = document.head;
 
-        const script = document.createElement("script");
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-        script.async = true;
-        script.setAttribute("data-ad-client", "ca-pub-6925566382959478");
-        script.setAttribute("crossorigin", "anonymous");
+    const script = document.createElement("script");
+    script.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6925566382959478";
+    script.async = true;
+    script.setAttribute("crossorigin", "anonymous");
 
-        head.appendChild(script);
-
-        scrolled.current = true;
-      }
-    };
-
-    document.addEventListener("scroll", onScroll);
-
-    return () => {
-      document.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+    head.appendChild(script);
+  }, []); // Empty dependency array means this useEffect runs once when component mounts
 
   ///END ADSENSE CODE
 
