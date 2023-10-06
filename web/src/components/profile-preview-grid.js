@@ -23,7 +23,7 @@ function ProfilePreviewGrid(props, Items) {
 
       <ul className="flex flex-wrap flex-row">
         {props.nodes &&
-          props.nodes.slice(0, 8).map(node => (
+          props.nodes.slice(0, 20).map(node => (
             //<li className={ (props.stack ? 'w-full ' : 'w-1/2 md:w-1/4 px-3' )} key={node.id}>
             <li className={props.stack ? "w-1/2 " : "w-1/2 md:w-1/4 px-3"} key={node.id}>
               <ProfilePreview {...node} stack={props.stack} catView={props.catView} />

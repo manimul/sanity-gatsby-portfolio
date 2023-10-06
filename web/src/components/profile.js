@@ -8,6 +8,7 @@ import {
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
+import NewsFeed from "./news-feed";
 import BlockContent from "./block-content";
 import YouTubeEmbed from "./youtube-embed";
 import Container from "./container";
@@ -92,6 +93,8 @@ function Profile(props, relatedProfiles) {
 
             {videos && videos.length > 0 && (
               <section className="mb-6">
+                {/* <NewsFeed query={title} />*/}
+
                 <h2 className="font-bold md:text-xl text-center md:text-left  mb-6 ">
                   Watch {name} Videos
                 </h2>
@@ -102,7 +105,7 @@ function Profile(props, relatedProfiles) {
               </section>
             )}
 
-            <h2 className="font-bold md:text-xl text-center md:text-left  ">
+            <h2 className="font-bold md:text-xl text-center md:text-left ">
               Explore Related Profiles
             </h2>
 
