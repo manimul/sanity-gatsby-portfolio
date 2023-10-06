@@ -68,6 +68,10 @@ function SEO({ description, lang, meta, keywords, path, image, title }) {
                 content: "285486349462664"
               },
               {
+                name: "google-ad-sense",
+                content: "ca-pub-6925566382959478"
+              },
+              {
                 property: "og:url",
                 content: siteUrl + currentPath + "/"
               }
